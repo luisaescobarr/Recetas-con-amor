@@ -188,7 +188,36 @@ header {
   color: #545855;
   margin-bottom: 15px;
 }
+@media (max-width: 768px) {
+  .category-box {
+    width: 90%;
+    font-size: 16px;
+  }
 
+  .search-bar input {
+    width: 80%;
+  }
+
+  .navbar, .category-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  h1 {
+    font-size: 28px;
+    text-align: center;
+  }
+
+  p {
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .menu {
+    width: 100%;
+    justify-content: center;
+  }
+}
 /* Botón “Ver receta” */
 .ver-receta-btn {
   align-self: flex-start;

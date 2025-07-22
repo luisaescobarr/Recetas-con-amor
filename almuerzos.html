@@ -1,78 +1,147 @@
-<!DOCTYPE html><html lang="es">
+<!DOCTYPE html>
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Almuerzos</title>
   <link rel="stylesheet" href="estilos.css">
+  <script defer src="script.js"></script>
 </head>
 <body>
-  <a href="index.html" class="boton-volver" title="Volver al inicio">⬅ Volver al inicio</a>  <header>
+  <header>
     <h1>Almuerzos</h1>
-  </header>  <main>
+    <a href="index.html" class="boton-volver">⬅ Volver al inicio</a>
+  </header>
+
+  <main>
     <section class="buscador">
-      <input type="text" id="buscador-almuerzo" placeholder="Buscar receta...">
-    </section><section id="recetas-almuerzo" class="recetas">
-  <article class="receta">
-    <h2>Ensalada de quinoa</h2>
-    <p>Con vegetales frescos y aderezo de limón.</p>
-  </article>
+      <input type="text" id="buscador-almuerzo" placeholder="Buscar receta de almuerzo...">
+    </section>
 
-  <article class="receta">
-    <h2>Pollo al horno con batatas</h2>
-    <p>Pechuga al horno con batatas asadas.</p>
-  </article>
+    <section id="recetas-almuerzo" class="recetas">
+      <article class="receta">
+        <h2>Ensalada de quinoa</h2>
+        <p>Una ensalada ligera con quinoa, vegetales frescos y un aderezo de limón.</p>
+        <ul>
+          <li>Quinoa (30%)</li>
+          <li>Tomate (15%)</li>
+          <li>Pimiento (10%)</li>
+          <li>Pepino (10%)</li>
+          <li>Limón y aceite de oliva (5%)</li>
+        </ul>
+        <p><strong>Valor nutricional:</strong> 350 kcal</p>
+        <p>Paso a paso: Cocina la quinoa, pica los vegetales y mezcla todo con el aderezo.</p>
+      </article>
 
-  <article class="receta">
-    <h2>Arroz integral con vegetales</h2>
-    <p>Rico en fibra, con zanahoria, brócoli y arvejas.</p>
-  </article>
+      <article class="receta">
+        <h2>Pollo al horno con batatas</h2>
+        <p>Pechuga de pollo al horno acompañada con batatas asadas.</p>
+        <ul>
+          <li>Pechuga de pollo (50%)</li>
+          <li>Batatas (40%)</li>
+          <li>Aceite de oliva, ajo y especias (10%)</li>
+        </ul>
+        <p><strong>Valor nutricional:</strong> 420 kcal</p>
+        <p>Paso a paso: Sazona el pollo, hornea junto con las batatas por 45 minutos.</p>
+      </article>
 
-  <article class="receta">
-    <h2>Tortilla de espinaca y avena</h2>
-    <p>Ideal para vegetarianos, rica en hierro.</p>
-  </article>
+      <article class="receta">
+        <h2>Arroz integral con vegetales salteados</h2>
+        <p>Una opción vegetariana rica en fibra.</p>
+        <ul>
+          <li>Arroz integral cocido (40%)</li>
+          <li>Zanahoria, brócoli, arvejas (50%)</li>
+          <li>Soya y aceite (10%)</li>
+        </ul>
+        <p><strong>Valor nutricional:</strong> 390 kcal</p>
+        <p>Paso a paso: Cocina el arroz, saltea los vegetales y mezcla todo junto.</p>
+      </article>
 
-  <article class="receta">
-    <h2>Lentejas guisadas con verduras</h2>
-    <p>Proteína vegetal en un plato completo.</p>
-  </article>
+      <article class="receta">
+        <h2>Tortilla de espinaca y avena</h2>
+        <p>Tortilla nutritiva rica en hierro.</p>
+        <ul>
+          <li>Huevos (50%)</li>
+          <li>Espinaca (30%)</li>
+          <li>Avena (20%)</li>
+        </ul>
+        <p><strong>Valor nutricional:</strong> 280 kcal</p>
+        <p>Paso a paso: Mezcla todos los ingredientes y cocina en sartén antiadherente.</p>
+      </article>
 
-  <article class="receta">
-    <h2>Tacos integrales con atún y aguacate</h2>
-    <p>Rápidos, saludables y frescos.</p>
-  </article>
+      <article class="receta">
+        <h2>Lentejas guisadas con verduras</h2>
+        <p>Un plato alto en proteína vegetal.</p>
+        <ul>
+          <li>Lentejas (60%)</li>
+          <li>Verduras varias (30%)</li>
+          <li>Especias (10%)</li>
+        </ul>
+        <p><strong>Valor nutricional:</strong> 400 kcal</p>
+        <p>Paso a paso: Cocina las lentejas con las verduras y condimenta al gusto.</p>
+      </article>
 
-  <article class="receta">
-    <h2>Pollo a la plancha con arroz y ensalada</h2>
-    <p>Clásico almuerzo balanceado.</p>
-  </article>
+      <article class="receta">
+        <h2>Tacos integrales con atún y aguacate</h2>
+        <p>Tacos saludables y rápidos.</p>
+        <ul>
+          <li>Pan integral (30%)</li>
+          <li>Atún (40%)</li>
+          <li>Aguacate (20%)</li>
+          <li>Vegetales (10%)</li>
+        </ul>
+        <p><strong>Valor nutricional:</strong> 370 kcal</p>
+        <p>Paso a paso: Arma los tacos con los ingredientes y sirve frío.</p>
+      </article>
 
-  <article class="receta">
-    <h2>Bol de garbanzos y vegetales</h2>
-    <p>Vegano y nutritivo.</p>
-  </article>
+      <article class="receta">
+        <h2>Pollo a la plancha con arroz y ensalada</h2>
+        <p>Un clásico balanceado.</p>
+        <ul>
+          <li>Pechuga de pollo (40%)</li>
+          <li>Arroz blanco o integral (30%)</li>
+          <li>Ensalada fresca (30%)</li>
+        </ul>
+        <p><strong>Valor nutricional:</strong> 450 kcal</p>
+        <p>Paso a paso: Cocina cada componente por separado y sirve en plato balanceado.</p>
+      </article>
 
-  <article class="receta">
-    <h2>Pasta integral con salsa natural</h2>
-    <p>Ligera y deliciosa.</p>
-  </article>
+      <article class="receta">
+        <h2>Bol de garbanzos y vegetales</h2>
+        <p>Una comida vegana completa.</p>
+        <ul>
+          <li>Garbanzos cocidos (50%)</li>
+          <li>Vegetales al vapor (40%)</li>
+          <li>Aderezo de tahini (10%)</li>
+        </ul>
+        <p><strong>Valor nutricional:</strong> 390 kcal</p>
+        <p>Paso a paso: Mezcla los garbanzos con los vegetales y añade aderezo.</p>
+      </article>
 
-  <article class="receta">
-    <h2>Wrap integral de pollo y vegetales</h2>
-    <p>Perfecto para llevar.</p>
-  </article>
-</section>
+      <article class="receta">
+        <h2>Pasta integral con salsa de tomate natural</h2>
+        <p>Una receta deliciosa y ligera.</p>
+        <ul>
+          <li>Pasta integral (60%)</li>
+          <li>Salsa de tomate casera (30%)</li>
+          <li>Queso rallado (10%)</li>
+        </ul>
+        <p><strong>Valor nutricional:</strong> 410 kcal</p>
+        <p>Paso a paso: Cocina la pasta, prepara la salsa y mezcla todo.</p>
+      </article>
 
-  </main>  <script>
-    const buscador = document.getElementById('buscador-almuerzo');
-    const recetas = document.querySelectorAll('.receta');
-
-    buscador.addEventListener('input', () => {
-      const valor = buscador.value.toLowerCase();
-      recetas.forEach(receta => {
-        const titulo = receta.querySelector('h2').textContent.toLowerCase();
-        receta.style.display = titulo.includes(valor) ? 'block' : 'none';
-      });
-    });
-  </script></body>
+      <article class="receta">
+        <h2>Wrap integral de pollo y vegetales</h2>
+        <p>Perfecto para llevar.</p>
+        <ul>
+          <li>Tortilla integral (30%)</li>
+          <li>Pollo cocido (40%)</li>
+          <li>Vegetales crudos (30%)</li>
+        </ul>
+        <p><strong>Valor nutricional:</strong> 400 kcal</p>
+        <p>Paso a paso: Arma el wrap y córtalo en mitades para servir.</p>
+      </article>
+    </section>
+  </main>
+</body>
 </html>

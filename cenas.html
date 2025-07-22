@@ -4,110 +4,129 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Cena - Recetas con Amor</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      padding: 20px;
-      background-color: #fff;
-      color: #333;
-    }
-
-    h1 {
-      text-align: center;
-      color: #D19793;
-    }
-
-    .volver-inicio {
-      display: block;
-      margin: 10px 0;
-      text-decoration: none;
-      color: #D19793;
-      font-weight: bold;
-    }
-
-    .buscar-input {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 20px;
-      border: 2px solid #D19793;
-      border-radius: 8px;
-      font-size: 16px;
-    }
-
-    .receta {
-      border: 1px solid #D19793;
-      padding: 15px;
-      margin-bottom: 15px;
-      border-radius: 10px;
-      background-color: #FCEEEE;
-    }
-
-    .receta h2 {
-      margin-top: 0;
-      color: #A75D5D;
-    }
-  </style>
+  <link rel="stylesheet" href="estilos.css" />
 </head>
 <body>
-  <a href="index.html" class="volver-inicio">← Volver al inicio</a>
-  <h1>Cena</h1>
+  <header>
+    <h1>Cena</h1>
+    <a href="index.html" class="volver-inicio">← Volver al inicio</a>
+    <input type="text" id="buscar" placeholder="Buscar receta...">
+  </header>
 
-  <input type="text" class="buscar-input" id="busqueda" placeholder="Buscar receta..." onkeyup="buscarRecetas()" />
+  <main>
+    <section id="recetas">
+      <article class="receta">
+        <h2>Ensalada de pollo y palta</h2>
+        <p>Una cena ligera y fresca con proteínas saludables.</p>
+        <ul>
+          <li><strong>Valor nutricional:</strong> 320 kcal</li>
+          <li><strong>Ingredientes:</strong> Pollo cocido, palta, espinaca, tomate cherry, limón.</li>
+          <li><strong>Paso a paso:</strong> Mezcla todos los ingredientes y aliña con jugo de limón y sal.</li>
+        </ul>
+      </article>
 
-  <div id="lista-recetas">
-    <div class="receta">
-      <h2>Ensalada tibia de quinoa y vegetales</h2>
-      <p>Con quinoa, espinaca salteada, zanahoria y aceite de oliva.</p>
-    </div>
-    <div class="receta">
-      <h2>Crema de calabaza</h2>
-      <p>Calabaza, cebolla, zanahoria y un toque de leche vegetal.</p>
-    </div>
-    <div class="receta">
-      <h2>Tortilla de espinaca y champiñones</h2>
-      <p>Huevos, espinaca, champiñones y cebolla.</p>
-    </div>
-    <div class="receta">
-      <h2>Pechuga de pollo con brócoli</h2>
-      <p>Pechuga a la plancha con brócoli al vapor y limón.</p>
-    </div>
-    <div class="receta">
-      <h2>Sopa de lentejas ligera</h2>
-      <p>Lentejas cocidas con apio, zanahoria y cebolla.</p>
-    </div>
-    <div class="receta">
-      <h2>Wrap integral de atún</h2>
-      <p>Tortilla integral, atún, lechuga y tomate en cubos.</p>
-    </div>
-    <div class="receta">
-      <h2>Puré de papa y zanahoria</h2>
-      <p>Con toque de ajo y leche vegetal, ideal para acompañar.</p>
-    </div>
-    <div class="receta">
-      <h2>Huevos revueltos con tomate y cebolla</h2>
-      <p>Clásico, rápido y lleno de sabor.</p>
-    </div>
-    <div class="receta">
-      <h2>Tofu salteado con vegetales</h2>
-      <p>Tofu en cubos con pimientos, cebolla y soya ligera.</p>
-    </div>
-    <div class="receta">
-      <h2>Pan integral con aguacate</h2>
-      <p>Con semillas de chía, sal marina y gotas de limón.</p>
-    </div>
-  </div>
+      <article class="receta">
+        <h2>Sopa de verduras</h2>
+        <p>Una opción reconfortante y ligera.</p>
+        <ul>
+          <li><strong>Valor nutricional:</strong> 150 kcal</li>
+          <li><strong>Ingredientes:</strong> Zanahoria, apio, cebolla, papa, zapallo.</li>
+          <li><strong>Paso a paso:</strong> Cocina todo junto con sal y condimentos hasta que las verduras estén suaves.</li>
+        </ul>
+      </article>
+
+      <article class="receta">
+        <h2>Tortilla de espinaca</h2>
+        <p>Ideal para una cena rápida y rica en hierro.</p>
+        <ul>
+          <li><strong>Valor nutricional:</strong> 280 kcal</li>
+          <li><strong>Ingredientes:</strong> Espinaca, huevo, queso bajo en grasa, cebolla.</li>
+          <li><strong>Paso a paso:</strong> Bate los huevos, añade espinaca salteada y cebolla, cocina en sartén.</li>
+        </ul>
+      </article>
+
+      <article class="receta">
+        <h2>Pescado al horno con vegetales</h2>
+        <p>Una cena completa, fácil de digerir y sabrosa.</p>
+        <ul>
+          <li><strong>Valor nutricional:</strong> 300 kcal</li>
+          <li><strong>Ingredientes:</strong> Filete de pescado blanco, brócoli, zanahoria, aceite de oliva.</li>
+          <li><strong>Paso a paso:</strong> Hornea todo junto con sal, limón y aceite de oliva por 25 minutos.</li>
+        </ul>
+      </article>
+
+      <article class="receta">
+        <h2>Arepa de avena con aguacate</h2>
+        <p>Rica en fibra y grasas saludables.</p>
+        <ul>
+          <li><strong>Valor nutricional:</strong> 310 kcal</li>
+          <li><strong>Ingredientes:</strong> Harina de avena, agua, sal, aguacate, limón.</li>
+          <li><strong>Paso a paso:</strong> Prepara las arepas y rellénalas con aguacate aliñado.</li>
+        </ul>
+      </article>
+
+      <article class="receta">
+        <h2>Salteado de tofu con brócoli</h2>
+        <p>Una cena vegana llena de proteína vegetal.</p>
+        <ul>
+          <li><strong>Valor nutricional:</strong> 270 kcal</li>
+          <li><strong>Ingredientes:</strong> Tofu, brócoli, salsa de soya, ajo.</li>
+          <li><strong>Paso a paso:</strong> Saltea el tofu y el brócoli con ajo y un poco de salsa de soya.</li>
+        </ul>
+      </article>
+
+      <article class="receta">
+        <h2>Wrap de lechuga con atún</h2>
+        <p>Ligero, rápido y sin carbohidratos refinados.</p>
+        <ul>
+          <li><strong>Valor nutricional:</strong> 220 kcal</li>
+          <li><strong>Ingredientes:</strong> Hojas de lechuga, atún en agua, mayonesa ligera, cebolla morada.</li>
+          <li><strong>Paso a paso:</strong> Mezcla el atún con la mayonesa y cebolla, y envuelve con lechuga.</li>
+        </ul>
+      </article>
+
+      <article class="receta">
+        <h2>Huevo pochado con espárragos</h2>
+        <p>Una opción elegante y saludable.</p>
+        <ul>
+          <li><strong>Valor nutricional:</strong> 240 kcal</li>
+          <li><strong>Ingredientes:</strong> Huevos, espárragos, vinagre.</li>
+          <li><strong>Paso a paso:</strong> Cocina los espárragos al vapor y sirve con huevo pochado encima.</li>
+        </ul>
+      </article>
+
+      <article class="receta">
+        <h2>Crema de zapallo</h2>
+        <p>Suave, nutritiva y fácil de hacer.</p>
+        <ul>
+          <li><strong>Valor nutricional:</strong> 180 kcal</li>
+          <li><strong>Ingredientes:</strong> Zapallo, cebolla, ajo, leche vegetal.</li>
+          <li><strong>Paso a paso:</strong> Cocina el zapallo con cebolla y ajo, licúa con leche vegetal hasta obtener una crema.</li>
+        </ul>
+      </article>
+
+      <article class="receta">
+        <h2>Pan integral con ricotta y tomate</h2>
+        <p>Una tostada ligera y saciante.</p>
+        <ul>
+          <li><strong>Valor nutricional:</strong> 260 kcal</li>
+          <li><strong>Ingredientes:</strong> Pan integral, ricotta, tomate, albahaca.</li>
+          <li><strong>Paso a paso:</strong> Tuesta el pan, unta ricotta y decora con tomate y albahaca.</li>
+        </ul>
+      </article>
+    </section>
+  </main>
 
   <script>
-    function buscarRecetas() {
-      const input = document.getElementById("busqueda").value.toLowerCase();
+    const inputBuscar = document.getElementById("buscar");
+    inputBuscar.addEventListener("input", () => {
+      const filtro = inputBuscar.value.toLowerCase();
       const recetas = document.querySelectorAll(".receta");
-
-      recetas.forEach(receta => {
+      recetas.forEach((receta) => {
         const texto = receta.innerText.toLowerCase();
-        receta.style.display = texto.includes(input) ? "block" : "none";
+        receta.style.display = texto.includes(filtro) ? "block" : "none";
       });
-    }
+    });
   </script>
 </body>
 </html>

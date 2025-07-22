@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bebidas - Recetas con Amor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2&family=Garlic+Butter&family=Tangerine&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      background-color: #ffffff;
+      color: #545855;
+      font-family: 'Baloo 2', cursive;
+      padding: 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-family: 'Garlic Butter', cursive;
+      font-size: 48px;
+      text-align: center;
+      margin-bottom: 5px;
+      color: #D19793;
+    }
+
+    p.bienvenida {
+      font-family: 'Tangerine', cursive;
+      font-size: 28px;
+      text-align: center;
+      margin-top: 0;
+      margin-bottom: 30px;
+      color: #EED5B7;
+    }
+
+    .buscador {
+      width: 100%;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .buscador input {
+      width: 80%;
+      padding: 10px;
+      font-size: 18px;
+      border-radius: 12px;
+      border: 2px solid #D19793;
+    }
+
+    .receta {
+      background-color: #F6CEC8;
+      border-radius: 15px;
+      padding: 20px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 8px rgba(84, 88, 85, 0.2);
+    }
+
+    .receta h2 {
+      margin-top: 0;
+      color: #545855;
+      font-family: 'Garlic Butter', cursive;
+      font-size: 32px;
+    }
+
+    .receta p.descripcion {
+      font-style: italic;
+      font-size: 18px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      color: #CCC7AE;
+    }
+
+    .valor-nutricional {
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #545855;
+    }
+
+    .ingredientes {
+      margin-bottom: 15px;
+    }
+
+    .ingredientes ul {
+      list-style-type: none;
+      padding-left: 0;
+      font-size: 18px;
+    }
+
+    .ingredientes li {
+      margin-bottom: 5px;
+    }
+
+    .pasos {
+      margin-top: 15px;
+    }
+
+    .pasos ol {
+      padding-left: 20px;
+      font-size: 18px;
+      color: #545855;
+    }
+
+    .calculadora-porciones {
+      margin-top: 10px;
+      font-size: 18px;
+    }
+
+    .calculadora-porciones label {
+      font-weight: 700;
+      margin-right: 10px;
+    }
+
+    .calculadora-porciones input[type=number] {
+      width: 60px;
+      padding: 5px;
+      border-radius: 10px;
+      border: 2px solid #D19793;
+      font-size: 18px;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 10px;
+      }
+
+      h1 {
+        font-size: 36px;
+      }
+
+      p.bienvenida {
+        font-size: 24px;
+      }
+
+      .buscador input {
+        width: 95%;
+      }
+
+      .receta {
+        padding: 15px;
+      }
+
+      .receta h2 {
+        font-size: 26px;
+      }
+    }
+  </style>
+</head>
+<body>
+<button onclick="window.location.href='index.html'" style="background-color:#D19793; color:#fff; border:none; padding:10px 20px; border-radius:12px; cursor:pointer; font-size:16px; margin-bottom:20px;">
+  ← Volver a inicio
+</button>
+  <h1>Recetas con Amor</h1>
+  <p class="bienvenida">Estas recetas las hice pensando en ti porque tú me inspiras a crear.</p>
+
+  <div class="buscador">
+    <input type="search" id="buscador" placeholder="Buscar receta de bebida..." />
+  </div>
+
+  <div id="lista-recetas"></div>
+
+  <script>
+    const recetas = [
+      {
+        nombre: "Limonada natural",
+        descripcion: "Refrescante y perfecta para el verano.",
+        valorNutricional: "50 kcal por porción",
+        ingredientes: [
+          { nombre: "Limones", cantidad: 3, unidad: "pieza" },
+          { nombre: "Agua", cantidad: 500, unidad: "ml" },
+          { nombre: "Azúcar", cantidad: 50, unidad: "g" }
+        ],
+        pasos: [
+          "Exprime los limones y mezcla el jugo con el agua.",
+          "Agrega azúcar al gusto y revuelve bien.",
+          "Sirve con hielo."
+        ]
+      },
+      {
+        nombre: "Batido de fresa y plátano",
+        descripcion: "Dulce y nutritivo para cualquier momento.",
+        valorNutricional: "180 kcal por porción",
+        ingredientes: [
+          { nombre: "Fresas", cantidad: 150, unidad: "g" },
+          { nombre: "Plátano", cantidad: 1, unidad: "pieza" },
+          { nombre: "Leche", cantidad: 250, unidad: "ml" }
+        ],
+        pasos: [
+          "Coloca todos los ingredientes en la licuadora.",
+          "Licúa hasta obtener una mezcla homogénea.",
+          "Sirve frío."
+        ]
+      },
+      {
+        nombre: "Té verde frío",
+        descripcion: "Ideal para hidratarte y antioxidante.",
+        valorNutricional: "2 kcal por porción",
+        ingredientes: [
+          { nombre: "Té verde", cantidad: 2, unidad: "bolsas" },
+          { nombre: "Agua", cantidad: 500, unidad: "ml" },
+          { nombre: "Miel", cantidad: 10, unidad: "g" }
+        ],
+        pasos: [
+          "Prepara el té verde con agua caliente y deja enfriar.",
+          "Endulza con miel al gusto.",
+          "Sirve con hielo."
+        ]
+      },
+      {
+        nombre: "Jugo de zanahoria y naranja",
+        descripcion: "Vitaminas para energizar tu día.",
+        valorNutricional: "90 kcal por porción",
+        ingredientes: [
+          { nombre: "Zanahorias", cantidad: 2, unidad: "pieza" },
+          { nombre: "Naranjas", cantidad: 2, unidad: "pieza" },
+          { nombre: "Agua", cantidad: 200, unidad: "ml" }
+        ],
+        pasos: [
+          "Extrae el jugo de las zanahorias y naranjas.",
+          "Mezcla con agua y revuelve bien.",
+          "Sirve frío."
+        ]
+      },
+      {
+        nombre: "Agua de coco natural",
+        descripcion: "Hidratante y refrescante directamente de la fruta.",
+        valorNutricional: "45 kcal por porción",
+        ingredientes: [
+          { nombre: "Agua de coco", cantidad: 300, unidad: "ml" }
+        ],
+        pasos: [
+          "Sirve el agua de coco fría.",
+          "Disfruta al natural o con hielo."
+        ]
+      },
+      {
+        nombre: "Café con leche",
+        descripcion: "Clásico para despertar con energía.",
+        valorNutricional: "120 kcal por porción",
+        ingredientes: [
+          { nombre: "Café preparado", cantidad: 200, unidad: "ml" },
+          { nombre: "Leche", cantidad: 100, unidad: "ml" },
+          { nombre: "Azúcar", cantidad: 10, unidad: "g" }
+        ],
+        pasos: [
+          "Prepara el café como prefieras.",
+          "Agrega la leche caliente y azúcar al gusto.",
+          "Sirve y disfruta."
+        ]
+      },
+      {
+        nombre: "Smoothie de mango y yogur",
+        descripcion: "Delicioso y cremoso para el desayuno.",
+        valorNutricional: "200 kcal por porción",
+        ingredientes: [
+          { nombre: "Mango", cantidad: 150, unidad: "g" },
+          { nombre: "Yogur natural", cantidad: 150, unidad: "g" },
+          { nombre: "Miel", cantidad: 10, unidad: "g" }
+        ],
+        pasos: [
+          "Licúa el mango con el yogur y miel.",
+          "Sirve frío."
+        ]
+      },
+      {
+        nombre: "Chocolate caliente",
+        descripcion: "Perfecto para días fríos y antojos dulces.",
+        valorNutricional: "250 kcal por porción",
+        ingredientes: [
+          { nombre: "Leche", cantidad: 250, unidad: "ml" },
+          { nombre: "Cacao en polvo", cantidad: 20, unidad: "g" },
+          { nombre: "Azúcar", cantidad: 30, unidad: "g" }
+        ],
+        pasos: [
+          "Calienta la leche y mezcla con cacao y azúcar.",
+          "Revuelve hasta disolver y sirve caliente."
+        ]
+      },
+      {
+        nombre: "Agua detox con pepino y limón",
+        descripcion: "Ideal para desintoxicar y refrescar.",
+        valorNutricional: "10 kcal por porción",
+        ingredientes: [
+          { nombre: "Agua", cantidad: 500, unidad: "ml" },
+          { nombre: "Pepino", cantidad: 0.5, unidad: "pieza" },
+          { nombre: "Limón", cantidad: 1, unidad: "pieza" }
+        ],
+        pasos: [
+          "Corta el pepino y limón en rodajas.",
+          "Agrega al agua y deja reposar en frío.",
+          "Sirve con hielo."
+        ]
+      },
+      {
+        nombre: "Té chai especiado",
+        descripcion: "Bebida aromática y reconfortante.",
+        valorNutricional: "90 kcal por porción",
+        ingredientes: [
+          { nombre: "Té negro", cantidad: 1, unidad: "bolsa" },
+          { nombre: "Leche", cantidad: 200, unidad: "ml" },
+          { nombre: "Especias chai", cantidad: 1, unidad: "cucharadita" },
+          { nombre: "Miel", cantidad: 15, unidad: "g" }
+        ],
+        pasos: [
+          "Prepara el té negro y añade las especias.",
+          "Agrega leche caliente y miel.",
+          "Sirve caliente."
+        ]
+      }
+    ];
+
+    function crearRecetaHTML(receta) {
+      const recetaDiv = document.createElement('div');
+      recetaDiv.classList.add('receta');
+
+      let ingredientesHTML = '<ul>';
+      receta.ingredientes.forEach(ing => {
+        ingredientesHTML += `<li data-cantidad="${ing.cantidad}" data-nombre="${ing.nombre}" data-unidad="${ing.unidad}">${ing.cantidad} ${ing.unidad} de ${ing.nombre}</li>`;
+      });
+      ingredientesHTML += '</ul>';
+
+      let pasosHTML = '<ol>';
+      receta.pasos.forEach(paso => {
+        pasosHTML += `<li>${paso}</li>`;
+      });
+      pasosHTML += '</ol>';
+
+      recetaDiv.innerHTML = `
+        <h2>${receta.nombre}</h2>
+        <p class="descripcion">${receta.descripcion}</p>
+        <p class="valor-nutricional">Valor nutricional: ${receta.valorNutricional}</p>
+        <div class="ingredientes">
+          <h3>Ingredientes:</h3>
+          ${ingredientesHTML}
+        </div>
+        <div class="calculadora-porciones">
+          <label for="porciones-${receta.nombre.replace(/\s+/g, '-')}">Porciones:</label>
+          <input type="number" min="1" max="100" value="1" id="porciones-${receta.nombre.replace(/\s+/g, '-')}" />
+        </div>
+        <div class="pasos">
+          <h3>Pasos:</h3>
+          ${pasosHTML}
+        </div>
+      `;
+
+      recetaDiv.querySelector('input[type="number"]').addEventListener('input', (e) => {
+        let factor = Number(e.target.value);
+        if (factor < 1) factor = 1;
+        if (factor > 100) factor = 100;
+
+        recetaDiv.querySelectorAll('.ingredientes li').forEach(li => {
+          const base = parseFloat(li.dataset.cantidad);
+          const unidad = li.dataset.unidad;
+          const nombre = li.dataset.nombre;
+          const nueva = (base * factor).toFixed(2).replace(/\.00$/, '');
+          li.textContent = `${nueva} ${unidad} de ${nombre}`;
+        });
+      });
+
+      return recetaDiv;
+    }
+
+    const listaRecetasDiv = document.getElementById('lista-recetas');
+
+    function mostrarRecetas(recetasAMostrar) {
+      listaRecetasDiv.innerHTML = '';
+      recetasAMostrar.forEach(receta => {
+        listaRecetasDiv.appendChild(crearRecetaHTML(receta));
+      });
+    }
+
+    mostrarRecetas(recetas);
+
+    document.getElementById('buscador').addEventListener('input', e => {
+      const filtro = e.target.value.toLowerCase();
+      const filtradas = recetas.filter(r => 
+        r.nombre.toLowerCase().includes(filtro) || 
+        r.descripcion.toLowerCase().includes(filtro)
+      );
+      mostrarRecetas(filtradas);
+    });
+  </script>
+</body>
+</html>

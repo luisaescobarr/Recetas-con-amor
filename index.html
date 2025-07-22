@@ -34,7 +34,48 @@
   <a href="bebidas.html" class="categoria" style="background-color:#D19793; color:#F6CEC8; text-decoration:none; display:inline-block; text-align:center;">Bebidas</a>
   <a href="postres.html" class="categoria" style="background-color:#545855; color:#EED5B7; text-decoration:none; display:inline-block; text-align:center;">Postres</a>
 </section>
+<!-- Menú lateral -->
+<aside id="menu-lateral" class="menu-lateral">
+  <nav>
+    <ul>
+      <li><button onclick="mostrarSeccion('favoritas')">❤️ Mis favoritas</button></li>
+      <li><button onclick="mostrarSeccion('album')">📁 Mi álbum de recetas</button></li>
+      <li><button onclick="mostrarSeccion('publicar')">📝 Publicar mi receta</button></li>
+    </ul>
+  </nav>
+</aside>
 
+<!-- Secciones funcionales -->
+<div id="contenido-dinamico" class="contenido-dinamico">
+
+  <!-- Mis favoritas -->
+  <section id="favoritas" class="seccion-opcion" style="display: none;">
+    <h2>❤️ Mis recetas favoritas</h2>
+    <div id="lista-favoritas"></div>
+  </section>
+
+  <!-- Álbum de recetas -->
+  <section id="album" class="seccion-opcion" style="display: none;">
+    <h2>📁 Mi álbum de recetas</h2>
+    <form id="form-album">
+      <input type="file" id="foto" accept="image/*" required />
+      <input type="text" id="descripcion" placeholder="Descripción..." required />
+      <button type="submit">Guardar</button>
+    </form>
+    <div id="galeria"></div>
+  </section>
+
+  <!-- Publicar mi receta -->
+  <section id="publicar" class="seccion-opcion" style="display: none;">
+    <h2>📝 Publicar mi receta</h2>
+    <form id="form-publicar">
+      <input type="text" placeholder="Nombre de la receta" required />
+      <textarea placeholder="Instrucciones..." required></textarea>
+      <button type="submit">Publicar</button>
+    </form>
+  </section>
+
+</div>
   <!-- Enlace al JS -->
   <script src="script.js"></script>
 </body>

@@ -1,134 +1,78 @@
-<!DOCTYPE html>
-<html lang="es">
+<!DOCTYPE html><html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Recetas - Almuerzos Saludables</title>
-  <style>
-    body {
-      background-color: #fff;
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      background-color: #EED5B7;
-      padding: 1rem;
-      text-align: center;
-      position: relative;
-    }
-    h1 {
-      margin: 0;
-      font-size: 2rem;
-    }
-    .volver-btn {
-      position: absolute;
-      top: 50%;
-      left: 1rem;
-      transform: translateY(-50%);
-      background-color: #D19793;
-      color: white;
-      border: none;
-      padding: 0.5rem 1rem;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    .search-container {
-      text-align: center;
-      margin: 1.5rem 0;
-    }
-    #buscador {
-      width: 80%;
-      padding: 0.7rem;
-      font-size: 1rem;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-    }
-    .recetas {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-      padding: 1rem;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-    .receta {
-      border: 1px solid #ccc;
-      border-radius: 10px;
-      padding: 1rem;
-      background-color: #fdf7f2;
-    }
-    .receta h2 {
-      margin-top: 0;
-    }
-    .favorito {
-      background-color: #D19793;
-      color: white;
-      border: none;
-      padding: 0.4rem 0.8rem;
-      border-radius: 4px;
-      cursor: pointer;
-      margin-top: 1rem;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Almuerzos</title>
+  <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
+  <a href="index.html" class="boton-volver" title="Volver al inicio">⬅ Volver al inicio</a>  <header>
+    <h1>Almuerzos</h1>
+  </header>  <main>
+    <section class="buscador">
+      <input type="text" id="buscador-almuerzo" placeholder="Buscar receta...">
+    </section><section id="recetas-almuerzo" class="recetas">
+  <article class="receta">
+    <h2>Ensalada de quinoa</h2>
+    <p>Con vegetales frescos y aderezo de limón.</p>
+  </article>
 
-  <header>
-    <button class="volver-btn" onclick="window.location.href='index.html'">← Volver</button>
-    <h1>Almuerzos Saludables</h1>
-  </header>
+  <article class="receta">
+    <h2>Pollo al horno con batatas</h2>
+    <p>Pechuga al horno con batatas asadas.</p>
+  </article>
 
-  <div class="search-container">
-    <input type="text" id="buscador" placeholder="Buscar receta...">
-  </div>
+  <article class="receta">
+    <h2>Arroz integral con vegetales</h2>
+    <p>Rico en fibra, con zanahoria, brócoli y arvejas.</p>
+  </article>
 
-  <section class="recetas" id="lista-recetas">
-    <!-- Receta 1 -->
-    <div class="receta">
-      <h2>Pollo al horno con verduras</h2>
-      <p>Una opción baja en grasas, rica en proteínas y sabor.</p>
-      <p><strong>Valor nutricional:</strong> 350 kcal, 30g proteínas, 12g grasas, 25g carbohidratos</p>
-      <p><strong>Ingredientes:</strong> 1 pechuga (60%), 1 taza de brócoli (20%), 1 zanahoria (20%)</p>
-      <p><strong>Preparación:</strong> Precalienta el horno, corta verduras, condimenta y hornea 35 min.</p>
-      <button class="favorito">⭐ Marcar como favorita</button>
-    </div>
+  <article class="receta">
+    <h2>Tortilla de espinaca y avena</h2>
+    <p>Ideal para vegetarianos, rica en hierro.</p>
+  </article>
 
-    <!-- Receta 2 -->
-    <div class="receta">
-      <h2>Ensalada de quinoa con aguacate</h2>
-      <p>Fresca, ligera y llena de energía y fibra.</p>
-      <p><strong>Valor nutricional:</strong> 310 kcal, 9g proteínas, 10g grasas, 40g carbohidratos</p>
-      <p><strong>Ingredientes:</strong> 1/2 taza de quinoa cocida (50%), 1/2 aguacate (30%), tomate (20%)</p>
-      <p><strong>Preparación:</strong> Cocina la quinoa, mezcla con los ingredientes picados y sirve.</p>
-      <button class="favorito">⭐ Marcar como favorita</button>
-    </div>
+  <article class="receta">
+    <h2>Lentejas guisadas con verduras</h2>
+    <p>Proteína vegetal en un plato completo.</p>
+  </article>
 
-    <!-- Recetas 3 a 10 (puedes agregar más siguiendo el mismo formato) -->
-    <div class="receta">
-      <h2>Arroz integral con lentejas</h2>
-      <p>Fuente rica en hierro y fibra, ideal para mantenerte lleno más tiempo.</p>
-      <p><strong>Valor nutricional:</strong> 420 kcal, 18g proteínas, 5g grasas, 70g carbohidratos</p>
-      <p><strong>Ingredientes:</strong> Arroz integral (50%), lentejas cocidas (40%), cebolla (10%)</p>
-      <p><strong>Preparación:</strong> Cocina arroz y lentejas, sofríe cebolla, mezcla y sirve.</p>
-      <button class="favorito">⭐ Marcar como favorita</button>
-    </div>
+  <article class="receta">
+    <h2>Tacos integrales con atún y aguacate</h2>
+    <p>Rápidos, saludables y frescos.</p>
+  </article>
 
-    <!-- Agrega más recetas aquí del 4 al 10... -->
+  <article class="receta">
+    <h2>Pollo a la plancha con arroz y ensalada</h2>
+    <p>Clásico almuerzo balanceado.</p>
+  </article>
 
-  </section>
+  <article class="receta">
+    <h2>Bol de garbanzos y vegetales</h2>
+    <p>Vegano y nutritivo.</p>
+  </article>
 
-  <script>
-    const buscador = document.getElementById('buscador');
-    const lista = document.getElementById('lista-recetas');
+  <article class="receta">
+    <h2>Pasta integral con salsa natural</h2>
+    <p>Ligera y deliciosa.</p>
+  </article>
+
+  <article class="receta">
+    <h2>Wrap integral de pollo y vegetales</h2>
+    <p>Perfecto para llevar.</p>
+  </article>
+</section>
+
+  </main>  <script>
+    const buscador = document.getElementById('buscador-almuerzo');
+    const recetas = document.querySelectorAll('.receta');
+
     buscador.addEventListener('input', () => {
       const valor = buscador.value.toLowerCase();
-      const recetas = lista.getElementsByClassName('receta');
-      for (let receta of recetas) {
-        receta.style.display = receta.innerText.toLowerCase().includes(valor) ? 'block' : 'none';
-      }
+      recetas.forEach(receta => {
+        const titulo = receta.querySelector('h2').textContent.toLowerCase();
+        receta.style.display = titulo.includes(valor) ? 'block' : 'none';
+      });
     });
-  </script>
-
-</body>
+  </script></body>
 </html>

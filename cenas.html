@@ -2,130 +2,364 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Cena - Recetas con Amor</title>
-  <link rel="stylesheet" href="estilos.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2&family=Garlic+Butter&family=Tangerine&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      background-color: #ffffff;
+      color: #545855;
+      font-family: 'Baloo 2', cursive;
+      padding: 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    h1 {
+      font-family: 'Garlic Butter', cursive;
+      font-size: 48px;
+      text-align: center;
+      margin-bottom: 5px;
+      color: #D19793;
+    }
+    p.bienvenida {
+      font-family: 'Tangerine', cursive;
+      font-size: 28px;
+      text-align: center;
+      margin-top: 0;
+      margin-bottom: 30px;
+      color: #EED5B7;
+    }
+    .buscador {
+      width: 100%;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .buscador input {
+      width: 80%;
+      padding: 10px;
+      font-size: 18px;
+      border-radius: 12px;
+      border: 2px solid #D19793;
+    }
+    .receta {
+      background-color: #F6CEC8;
+      border-radius: 15px;
+      padding: 20px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 8px rgba(84, 88, 85, 0.2);
+    }
+    .receta h2 {
+      margin-top: 0;
+      color: #545855;
+      font-family: 'Garlic Butter', cursive;
+      font-size: 32px;
+    }
+    .receta p.descripcion {
+      font-style: italic;
+      font-size: 18px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      color: #CCC7AE;
+    }
+    .valor-nutricional {
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #545855;
+    }
+    .ingredientes {
+      margin-bottom: 15px;
+    }
+    .ingredientes ul {
+      list-style-type: none;
+      padding-left: 0;
+      font-size: 18px;
+    }
+    .ingredientes li {
+      margin-bottom: 5px;
+    }
+    .pasos {
+      margin-top: 15px;
+    }
+    .pasos ol {
+      padding-left: 20px;
+      font-size: 18px;
+      color: #545855;
+    }
+    .calculadora-porciones {
+      margin-top: 10px;
+      font-size: 18px;
+    }
+    .calculadora-porciones label {
+      font-weight: 700;
+      margin-right: 10px;
+    }
+    .calculadora-porciones input[type=number] {
+      width: 60px;
+      padding: 5px;
+      border-radius: 10px;
+      border: 2px solid #D19793;
+      font-size: 18px;
+    }
+    @media (max-width: 768px) {
+      body {
+        padding: 10px;
+      }
+      h1 {
+        font-size: 36px;
+      }
+      p.bienvenida {
+        font-size: 24px;
+      }
+      .buscador input {
+        width: 95%;
+      }
+      .receta {
+        padding: 15px;
+      }
+      .receta h2 {
+        font-size: 26px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <h1>Cena</h1>
-    <a href="index.html" class="volver-inicio">← Volver al inicio</a>
-    <input type="text" id="buscar" placeholder="Buscar receta...">
-  </header>
-
-  <main>
-    <section id="recetas">
-      <article class="receta">
-        <h2>Ensalada de pollo y palta</h2>
-        <p>Una cena ligera y fresca con proteínas saludables.</p>
-        <ul>
-          <li><strong>Valor nutricional:</strong> 320 kcal</li>
-          <li><strong>Ingredientes:</strong> Pollo cocido, palta, espinaca, tomate cherry, limón.</li>
-          <li><strong>Paso a paso:</strong> Mezcla todos los ingredientes y aliña con jugo de limón y sal.</li>
-        </ul>
-      </article>
-
-      <article class="receta">
-        <h2>Sopa de verduras</h2>
-        <p>Una opción reconfortante y ligera.</p>
-        <ul>
-          <li><strong>Valor nutricional:</strong> 150 kcal</li>
-          <li><strong>Ingredientes:</strong> Zanahoria, apio, cebolla, papa, zapallo.</li>
-          <li><strong>Paso a paso:</strong> Cocina todo junto con sal y condimentos hasta que las verduras estén suaves.</li>
-        </ul>
-      </article>
-
-      <article class="receta">
-        <h2>Tortilla de espinaca</h2>
-        <p>Ideal para una cena rápida y rica en hierro.</p>
-        <ul>
-          <li><strong>Valor nutricional:</strong> 280 kcal</li>
-          <li><strong>Ingredientes:</strong> Espinaca, huevo, queso bajo en grasa, cebolla.</li>
-          <li><strong>Paso a paso:</strong> Bate los huevos, añade espinaca salteada y cebolla, cocina en sartén.</li>
-        </ul>
-      </article>
-
-      <article class="receta">
-        <h2>Pescado al horno con vegetales</h2>
-        <p>Una cena completa, fácil de digerir y sabrosa.</p>
-        <ul>
-          <li><strong>Valor nutricional:</strong> 300 kcal</li>
-          <li><strong>Ingredientes:</strong> Filete de pescado blanco, brócoli, zanahoria, aceite de oliva.</li>
-          <li><strong>Paso a paso:</strong> Hornea todo junto con sal, limón y aceite de oliva por 25 minutos.</li>
-        </ul>
-      </article>
-
-      <article class="receta">
-        <h2>Arepa de avena con aguacate</h2>
-        <p>Rica en fibra y grasas saludables.</p>
-        <ul>
-          <li><strong>Valor nutricional:</strong> 310 kcal</li>
-          <li><strong>Ingredientes:</strong> Harina de avena, agua, sal, aguacate, limón.</li>
-          <li><strong>Paso a paso:</strong> Prepara las arepas y rellénalas con aguacate aliñado.</li>
-        </ul>
-      </article>
-
-      <article class="receta">
-        <h2>Salteado de tofu con brócoli</h2>
-        <p>Una cena vegana llena de proteína vegetal.</p>
-        <ul>
-          <li><strong>Valor nutricional:</strong> 270 kcal</li>
-          <li><strong>Ingredientes:</strong> Tofu, brócoli, salsa de soya, ajo.</li>
-          <li><strong>Paso a paso:</strong> Saltea el tofu y el brócoli con ajo y un poco de salsa de soya.</li>
-        </ul>
-      </article>
-
-      <article class="receta">
-        <h2>Wrap de lechuga con atún</h2>
-        <p>Ligero, rápido y sin carbohidratos refinados.</p>
-        <ul>
-          <li><strong>Valor nutricional:</strong> 220 kcal</li>
-          <li><strong>Ingredientes:</strong> Hojas de lechuga, atún en agua, mayonesa ligera, cebolla morada.</li>
-          <li><strong>Paso a paso:</strong> Mezcla el atún con la mayonesa y cebolla, y envuelve con lechuga.</li>
-        </ul>
-      </article>
-
-      <article class="receta">
-        <h2>Huevo pochado con espárragos</h2>
-        <p>Una opción elegante y saludable.</p>
-        <ul>
-          <li><strong>Valor nutricional:</strong> 240 kcal</li>
-          <li><strong>Ingredientes:</strong> Huevos, espárragos, vinagre.</li>
-          <li><strong>Paso a paso:</strong> Cocina los espárragos al vapor y sirve con huevo pochado encima.</li>
-        </ul>
-      </article>
-
-      <article class="receta">
-        <h2>Crema de zapallo</h2>
-        <p>Suave, nutritiva y fácil de hacer.</p>
-        <ul>
-          <li><strong>Valor nutricional:</strong> 180 kcal</li>
-          <li><strong>Ingredientes:</strong> Zapallo, cebolla, ajo, leche vegetal.</li>
-          <li><strong>Paso a paso:</strong> Cocina el zapallo con cebolla y ajo, licúa con leche vegetal hasta obtener una crema.</li>
-        </ul>
-      </article>
-
-      <article class="receta">
-        <h2>Pan integral con ricotta y tomate</h2>
-        <p>Una tostada ligera y saciante.</p>
-        <ul>
-          <li><strong>Valor nutricional:</strong> 260 kcal</li>
-          <li><strong>Ingredientes:</strong> Pan integral, ricotta, tomate, albahaca.</li>
-          <li><strong>Paso a paso:</strong> Tuesta el pan, unta ricotta y decora con tomate y albahaca.</li>
-        </ul>
-      </article>
-    </section>
-  </main>
-
+<button onclick="window.location.href='index.html'" style="background-color:#D19793; color:#fff; border:none; padding:10px 20px; border-radius:12px; cursor:pointer; font-size:16px; margin-bottom:20px;">
+  ← Volver a inicio
+</button>
+  <h1>Cena</h1>
+  <p class="bienvenida">Estas recetas las hice pensando en ti porque tú me inspiras a crear.</p>
+  <div class="buscador">
+    <input type="search" id="buscador" placeholder="Buscar receta de cena..." />
+  </div>
+  <div id="lista-recetas"></div>
   <script>
-    const inputBuscar = document.getElementById("buscar");
-    inputBuscar.addEventListener("input", () => {
-      const filtro = inputBuscar.value.toLowerCase();
-      const recetas = document.querySelectorAll(".receta");
-      recetas.forEach((receta) => {
-        const texto = receta.innerText.toLowerCase();
-        receta.style.display = texto.includes(filtro) ? "block" : "none";
+    const recetas = [
+      {
+        nombre: "Sopa de verduras ligera",
+        descripcion: "Una cena suave y nutritiva para cerrar el día.",
+        valorNutricional: "150 kcal por porción",
+        ingredientes: [
+          { nombre: "Zanahoria", cantidad: 1, unidad: "pieza" },
+          { nombre: "Calabacín", cantidad: 1, unidad: "pieza" },
+          { nombre: "Apio", cantidad: 50, unidad: "g" },
+          { nombre: "Agua", cantidad: 500, unidad: "ml" }
+        ],
+        pasos: [
+          "Corta todas las verduras en trozos pequeños.",
+          "Hierve el agua y agrega las verduras.",
+          "Cocina por 20 minutos y sirve caliente."
+        ]
+      },
+      {
+        nombre: "Pechuga de pollo al horno con hierbas",
+        descripcion: "Proteína magra con un toque aromático.",
+        valorNutricional: "320 kcal por porción",
+        ingredientes: [
+          { nombre: "Pechuga de pollo", cantidad: 150, unidad: "g" },
+          { nombre: "Romero", cantidad: 1, unidad: "cucharadita" },
+          { nombre: "Ajo", cantidad: 1, unidad: "diente" },
+          { nombre: "Aceite de oliva", cantidad: 1, unidad: "cucharada" }
+        ],
+        pasos: [
+          "Marina la pechuga con aceite, ajo y romero.",
+          "Hornea a 180°C por 25 minutos.",
+          "Sirve con verduras al vapor."
+        ]
+      },
+      {
+        nombre: "Ensalada de quinoa y vegetales",
+        descripcion: "Rica en proteínas vegetales y fibra.",
+        valorNutricional: "280 kcal por porción",
+        ingredientes: [
+          { nombre: "Quinoa cocida", cantidad: 100, unidad: "g" },
+          { nombre: "Pepino", cantidad: 0.5, unidad: "pieza" },
+          { nombre: "Tomate cherry", cantidad: 6, unidad: "pieza" },
+          { nombre: "Limón", cantidad: 1, unidad: "pieza" }
+        ],
+        pasos: [
+          "Mezcla la quinoa con los vegetales picados.",
+          "Añade jugo de limón al gusto.",
+          "Sirve fresca."
+        ]
+      },
+      {
+        nombre: "Pescado a la plancha con limón",
+        descripcion: "Ligero y lleno de omega 3.",
+        valorNutricional: "310 kcal por porción",
+        ingredientes: [
+          { nombre: "Filete de pescado blanco", cantidad: 150, unidad: "g" },
+          { nombre: "Limón", cantidad: 1, unidad: "pieza" },
+          { nombre: "Sal y pimienta", cantidad: 1, unidad: "al gusto" }
+        ],
+        pasos: [
+          "Sazona el pescado con sal, pimienta y limón.",
+          "Cocina a la plancha por 5 minutos de cada lado.",
+          "Sirve con ensalada verde."
+        ]
+      },
+      {
+        nombre: "Tortilla de espinacas",
+        descripcion: "Rápida, nutritiva y deliciosa.",
+        valorNutricional: "250 kcal por porción",
+        ingredientes: [
+          { nombre: "Huevos", cantidad: 2, unidad: "pieza" },
+          { nombre: "Espinacas frescas", cantidad: 30, unidad: "g" },
+          { nombre: "Aceite de oliva", cantidad: 1, unidad: "cucharadita" }
+        ],
+        pasos: [
+          "Bate los huevos y mezcla con las espinacas.",
+          "Fríe en sartén con aceite hasta que cuaje.",
+          "Sirve caliente."
+        ]
+      },
+      {
+        nombre: "Crema de calabaza",
+        descripcion: "Suave y reconfortante para la cena.",
+        valorNutricional: "180 kcal por porción",
+        ingredientes: [
+          { nombre: "Calabaza", cantidad: 200, unidad: "g" },
+          { nombre: "Cebolla", cantidad: 0.5, unidad: "pieza" },
+          { nombre: "Caldo de verduras", cantidad: 300, unidad: "ml" }
+        ],
+        pasos: [
+          "Sofríe la cebolla y añade la calabaza.",
+          "Agrega el caldo y cocina hasta que la calabaza esté blanda.",
+          "Licúa y sirve."
+        ]
+      },
+      {
+        nombre: "Brochetas de verduras a la parrilla",
+        descripcion: "Coloridas y llenas de sabor.",
+        valorNutricional: "220 kcal por porción",
+        ingredientes: [
+          { nombre: "Pimiento rojo", cantidad: 1, unidad: "pieza" },
+          { nombre: "Calabacín", cantidad: 1, unidad: "pieza" },
+          { nombre: "Champiñones", cantidad: 100, unidad: "g" }
+        ],
+        pasos: [
+          "Corta las verduras en trozos.",
+          "Ensamblar en brochetas y asa a la parrilla.",
+          "Sirve con salsa ligera."
+        ]
+      },
+      {
+        nombre: "Ensalada de garbanzos y tomate",
+        descripcion: "Fresca y rica en proteínas vegetales.",
+        valorNutricional: "290 kcal por porción",
+        ingredientes: [
+          { nombre: "Garbanzos cocidos", cantidad: 150, unidad: "g" },
+          { nombre: "Tomate", cantidad: 1, unidad: "pieza" },
+          { nombre: "Cebolla", cantidad: 0.25, unidad: "pieza" },
+          { nombre: "Aceite de oliva", cantidad: 1, unidad: "cucharada" }
+        ],
+        pasos: [
+          "Mezcla todos los ingredientes en un bowl.",
+          "Adereza con aceite y sal al gusto.",
+          "Sirve fresca."
+        ]
+      },
+      {
+        nombre: "Salmón al horno con limón y eneldo",
+        descripcion: "Una cena elegante y saludable.",
+        valorNutricional: "350 kcal por porción",
+        ingredientes: [
+          { nombre: "Filete de salmón", cantidad: 150, unidad: "g" },
+          { nombre: "Limón", cantidad: 1, unidad: "pieza" },
+          { nombre: "Eneldo fresco", cantidad: 1, unidad: "cucharadita" }
+        ],
+        pasos: [
+          "Coloca el salmón en una bandeja para horno.",
+          "Añade limón y eneldo por encima.",
+          "Hornea a 180°C por 20 minutos."
+        ]
+      },
+      {
+        nombre: "Sopa miso con tofu y algas",
+        descripcion: "Ligera y llena de sabor umami.",
+        valorNutricional: "200 kcal por porción",
+        ingredientes: [
+          { nombre: "Pasta miso", cantidad: 2, unidad: "cucharadas" },
+          { nombre: "Tofu", cantidad: 100, unidad: "g" },
+          { nombre: "Alga wakame", cantidad: 10, unidad: "g" }
+        ],
+        pasos: [
+          "Disuelve la pasta miso en caldo caliente.",
+          "Agrega tofu y algas.",
+          "Calienta sin hervir y sirve."
+        ]
+      }
+    ];
+
+    function crearRecetaHTML(receta) {
+      const recetaDiv = document.createElement('div');
+      recetaDiv.classList.add('receta');
+
+      let ingredientesHTML = '<ul>';
+      receta.ingredientes.forEach(ing => {
+        ingredientesHTML += `<li data-cantidad="${ing.cantidad}" data-nombre="${ing.nombre}" data-unidad="${ing.unidad}">${ing.cantidad} ${ing.unidad} de ${ing.nombre}</li>`;
       });
+      ingredientesHTML += '</ul>';
+
+      let pasosHTML = '<ol>';
+      receta.pasos.forEach(paso => {
+        pasosHTML += `<li>${paso}</li>`;
+      });
+      pasosHTML += '</ol>';
+
+      recetaDiv.innerHTML = `
+        <h2>${receta.nombre}</h2>
+        <p class="descripcion">${receta.descripcion}</p>
+        <p class="valor-nutricional">Valor nutricional: ${receta.valorNutricional}</p>
+        <div class="ingredientes">
+          <h3>Ingredientes:</h3>
+          ${ingredientesHTML}
+        </div>
+        <div class="calculadora-porciones">
+          <label for="porciones-${receta.nombre.replace(/\s+/g, '-')}">Porciones:</label>
+          <input type="number" min="1" max="100" value="1" id="porciones-${receta.nombre.replace(/\s+/g, '-')}" />
+        </div>
+        <div class="pasos">
+          <h3>Pasos:</h3>
+          ${pasosHTML}
+        </div>
+      `;
+
+      recetaDiv.querySelector('input[type="number"]').addEventListener('input', (e) => {
+        let factor = Number(e.target.value);
+        if (factor < 1) factor = 1;
+        if (factor > 100) factor = 100;
+
+        recetaDiv.querySelectorAll('.ingredientes li').forEach(li => {
+          const base = parseFloat(li.dataset.cantidad);
+          const unidad = li.dataset.unidad;
+          const nombre = li.dataset.nombre;
+          const nueva = (base * factor).toFixed(2).replace(/\.00$/, '');
+          li.textContent = `${nueva} ${unidad} de ${nombre}`;
+        });
+      });
+
+      return recetaDiv;
+    }
+
+    const listaRecetasDiv = document.getElementById('lista-recetas');
+
+    function mostrarRecetas(recetasAMostrar) {
+      listaRecetasDiv.innerHTML = '';
+      recetasAMostrar.forEach(receta => {
+        listaRecetasDiv.appendChild(crearRecetaHTML(receta));
+      });
+    }
+
+    mostrarRecetas(recetas);
+
+    document.getElementById('buscador').addEventListener('input', e => {
+      const filtro = e.target.value.toLowerCase();
+      const filtradas = recetas.filter(r => 
+        r.nombre.toLowerCase().includes(filtro) || 
+        r.descripcion.toLowerCase().includes(filtro)
+      );
+      mostrarRecetas(filtradas);
     });
   </script>
 </body>

@@ -1,0 +1,125 @@
+/* Importar fuentes */
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Tangerine&family=Baloo+2&display=swap');
+
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body */
+body {
+  font-family: 'Lato', sans-serif;
+  background-color: #F6CEC8;
+  color: #545855;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Header */
+header {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  padding: 10px 20px;
+}
+
+/* Botón menú hamburguesa */
+#menu-btn {
+  font-size: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #545855;
+}
+
+/* Sección título y bienvenida */
+.titulo-bienvenida {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.titulo {
+  font-family: 'Pacifico', cursive;
+  font-size: 3.5rem;
+  color: #D19793;
+  margin-bottom: 10px;
+}
+
+.bienvenida {
+  font-family: 'Tangerine', cursive;
+  font-size: 1.8rem;
+  color: #545855;
+}
+
+/* Buscador general */
+.buscador-general {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto 30px auto;
+}
+
+.buscador-general input[type="search"] {
+  width: 100%;
+  padding: 10px 15px;
+  font-size: 1rem;
+  border-radius: 25px;
+  border: 2px solid #D19793;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.buscador-general input[type="search"]:focus {
+  border-color: #545855;
+}
+
+/* Sección categorías */
+.categorias {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 15px;
+  width: 100%;
+  max-width: 700px;
+}
+
+.categoria {
+  padding: 25px 0;
+  border-radius: 15px;
+  font-family: 'Baloo 2', cursive;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #545855;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.categoria:hover {
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  filter: brightness(0.95);
+}
+
+/* Colores personalizados para categorías con texto en colores adecuados */
+.categoria[style*="#F6CEC8"] {
+  color: #545855;
+}
+
+.categoria[style*="#EED5B7"] {
+  color: #545855;
+}
+
+.categoria[style*="#CCC7AE"] {
+  color: #545855;
+}
+
+.categoria[style*="#D19793"] {
+  color: #F6CEC8;
+}
+
+.categoria[style*="#545855"] {
+  color: #EED5B7;
+}

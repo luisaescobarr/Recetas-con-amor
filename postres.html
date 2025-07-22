@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Postres - Recetas con Amor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2&family=Garlic+Butter&family=Tangerine&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      background-color: #ffffff;
+      color: #545855;
+      font-family: 'Baloo 2', cursive;
+      padding: 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-family: 'Garlic Butter', cursive;
+      font-size: 48px;
+      text-align: center;
+      margin-bottom: 5px;
+      color: #D19793;
+    }
+
+    p.bienvenida {
+      font-family: 'Tangerine', cursive;
+      font-size: 28px;
+      text-align: center;
+      margin-top: 0;
+      margin-bottom: 30px;
+      color: #EED5B7;
+    }
+
+    .buscador {
+      width: 100%;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .buscador input {
+      width: 80%;
+      padding: 10px;
+      font-size: 18px;
+      border-radius: 12px;
+      border: 2px solid #D19793;
+    }
+
+    .receta {
+      background-color: #F6CEC8;
+      border-radius: 15px;
+      padding: 20px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 8px rgba(84, 88, 85, 0.2);
+    }
+
+    .receta h2 {
+      margin-top: 0;
+      color: #545855;
+      font-family: 'Garlic Butter', cursive;
+      font-size: 32px;
+    }
+
+    .receta p.descripcion {
+      font-style: italic;
+      font-size: 18px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      color: #CCC7AE;
+    }
+
+    .valor-nutricional {
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #545855;
+    }
+
+    .ingredientes {
+      margin-bottom: 15px;
+    }
+
+    .ingredientes ul {
+      list-style-type: none;
+      padding-left: 0;
+      font-size: 18px;
+    }
+
+    .ingredientes li {
+      margin-bottom: 5px;
+    }
+
+    .pasos {
+      margin-top: 15px;
+    }
+
+    .pasos ol {
+      padding-left: 20px;
+      font-size: 18px;
+      color: #545855;
+    }
+
+    .calculadora-porciones {
+      margin-top: 10px;
+      font-size: 18px;
+    }
+
+    .calculadora-porciones label {
+      font-weight: 700;
+      margin-right: 10px;
+    }
+
+    .calculadora-porciones input[type=number] {
+      width: 60px;
+      padding: 5px;
+      border-radius: 10px;
+      border: 2px solid #D19793;
+      font-size: 18px;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 10px;
+      }
+
+      h1 {
+        font-size: 36px;
+      }
+
+      p.bienvenida {
+        font-size: 24px;
+      }
+
+      .buscador input {
+        width: 95%;
+      }
+
+      .receta {
+        padding: 15px;
+      }
+
+      .receta h2 {
+        font-size: 26px;
+      }
+    }
+  </style>
+</head>
+<body>
+<button onclick="window.location.href='index.html'" style="background-color:#D19793; color:#fff; border:none; padding:10px 20px; border-radius:12px; cursor:pointer; font-size:16px; margin-bottom:20px;">
+  ← Volver a inicio
+</button>
+  <h1>Recetas con Amor</h1>
+  <p class="bienvenida">Estas recetas las hice pensando en ti porque tú me inspiras a crear.</p>
+
+  <div class="buscador">
+    <input type="search" id="buscador" placeholder="Buscar receta de postre..." />
+  </div>
+
+  <div id="lista-recetas"></div>
+
+  <script>
+    const recetas = [
+      {
+        nombre: "Tarta de manzana",
+        descripcion: "Un clásico dulce y jugoso.",
+        valorNutricional: "320 kcal por porción",
+        ingredientes: [
+          { nombre: "Manzanas", cantidad: 3, unidad: "pieza" },
+          { nombre: "Harina", cantidad: 200, unidad: "g" },
+          { nombre: "Azúcar", cantidad: 150, unidad: "g" },
+          { nombre: "Mantequilla", cantidad: 100, unidad: "g" }
+        ],
+        pasos: [
+          "Pela y corta las manzanas en rodajas.",
+          "Prepara la masa mezclando harina, azúcar y mantequilla.",
+          "Coloca las manzanas sobre la masa y hornea a 180°C por 40 minutos."
+        ]
+      },
+      {
+        nombre: "Brownies de chocolate",
+        descripcion: "Delicioso y chocolatoso para los amantes del cacao.",
+        valorNutricional: "400 kcal por porción",
+        ingredientes: [
+          { nombre: "Chocolate negro", cantidad: 150, unidad: "g" },
+          { nombre: "Harina", cantidad: 120, unidad: "g" },
+          { nombre: "Azúcar", cantidad: 200, unidad: "g" },
+          { nombre: "Huevos", cantidad: 2, unidad: "pieza" },
+          { nombre: "Mantequilla", cantidad: 100, unidad: "g" }
+        ],
+        pasos: [
+          "Derrite el chocolate con la mantequilla.",
+          "Mezcla con harina, azúcar y huevos.",
+          "Hornea a 170°C por 25 minutos."
+        ]
+      },
+      {
+        nombre: "Gelatina de frutas",
+        descripcion: "Fresca y ligera para cualquier ocasión.",
+        valorNutricional: "100 kcal por porción",
+        ingredientes: [
+          { nombre: "Gelatina sin sabor", cantidad: 2, unidad: "sobres" },
+          { nombre: "Frutas variadas", cantidad: 200, unidad: "g" },
+          { nombre: "Azúcar", cantidad: 100, unidad: "g" }
+        ],
+        pasos: [
+          "Disuelve la gelatina según instrucciones.",
+          "Agrega el azúcar y mezcla bien.",
+          "Añade las frutas y refrigera hasta cuajar."
+        ]
+      },
+      {
+        nombre: "Flan casero",
+        descripcion: "Clásico postre cremoso y dulce.",
+        valorNutricional: "250 kcal por porción",
+        ingredientes: [
+          { nombre: "Huevos", cantidad: 4, unidad: "pieza" },
+          { nombre: "Leche", cantidad: 500, unidad: "ml" },
+          { nombre: "Azúcar", cantidad: 150, unidad: "g" }
+        ],
+        pasos: [
+          "Mezcla huevos, leche y azúcar.",
+          "Vierte en moldes con caramelo.",
+          "Hornea al baño María a 180°C por 50 minutos."
+        ]
+      },
+      {
+        nombre: "Helado de vainilla",
+        descripcion: "Dulce y cremoso, perfecto para el calor.",
+        valorNutricional: "210 kcal por porción",
+        ingredientes: [
+          { nombre: "Leche", cantidad: 500, unidad: "ml" },
+          { nombre: "Azúcar", cantidad: 150, unidad: "g" },
+          { nombre: "Extracto de vainilla", cantidad: 1, unidad: "cucharadita" }
+        ],
+        pasos: [
+          "Mezcla todos los ingredientes y enfría.",
+          "Coloca en la máquina para hacer helados o en congelador, removiendo cada 30 minutos.",
+          "Sirve cuando esté firme."
+        ]
+      },
+      {
+        nombre: "Mousse de chocolate",
+        descripcion: "Ligero y esponjoso para los amantes del chocolate.",
+        valorNutricional: "280 kcal por porción",
+        ingredientes: [
+          { nombre: "Chocolate negro", cantidad: 150, unidad: "g" },
+          { nombre: "Crema para batir", cantidad: 200, unidad: "ml" },
+          { nombre: "Azúcar", cantidad: 50, unidad: "g" },
+          { nombre: "Huevos", cantidad: 3, unidad: "pieza" }
+        ],
+        pasos: [
+          "Derrite el chocolate y deja enfriar.",
+          "Bate las claras a punto de nieve y la crema por separado.",
+          "Mezcla suavemente todos los ingredientes y refrigera por 3 horas."
+        ]
+      },
+      {
+        nombre: "Cheesecake sin horno",
+        descripcion: "Fácil y delicioso, sin complicaciones.",
+        valorNutricional: "350 kcal por porción",
+        ingredientes: [
+          { nombre: "Queso crema", cantidad: 300, unidad: "g" },
+          { nombre: "Galletas", cantidad: 200, unidad: "g" },
+          { nombre: "Mantequilla", cantidad: 100, unidad: "g" },
+          { nombre: "Azúcar", cantidad: 100, unidad: "g" }
+        ],
+        pasos: [
+          "Tritura las galletas y mézclalas con mantequilla derretida.",
+          "Presiona la mezcla en el molde y refrigera.",
+          "Bate el queso crema con azúcar y coloca encima, luego refrigera 4 horas."
+        ]
+      },
+      {
+        nombre: "Pudding de chía y frutos rojos",
+        descripcion: "Saludable y refrescante, perfecto para la tarde.",
+        valorNutricional: "180 kcal por porción",
+        ingredientes: [
+          { nombre: "Semillas de chía", cantidad: 50, unidad: "g" },
+          { nombre: "Leche de almendra", cantidad: 300, unidad: "ml" },
+          { nombre: "Frutos rojos", cantidad: 100, unidad: "g" },
+          { nombre: "Miel", cantidad: 20, unidad: "g" }
+        ],
+        pasos: [
+          "Mezcla las semillas de chía con la leche y miel.",
+          "Deja reposar en frío al menos 4 horas.",
+          "Sirve con frutos rojos por encima."
+        ]
+      },
+      {
+        nombre: "Cupcakes de vainilla",
+        descripcion: "Pequeños y esponjosos, ideales para compartir.",
+        valorNutricional: "250 kcal por porción",
+        ingredientes: [
+          { nombre: "Harina", cantidad: 200, unidad: "g" },
+          { nombre: "Azúcar", cantidad: 150, unidad: "g" },
+          { nombre: "Huevos", cantidad: 2, unidad: "pieza" },
+          { nombre: "Leche", cantidad: 120, unidad: "ml" },
+          { nombre: "Extracto de vainilla", cantidad: 1, unidad: "cucharadita" }
+        ],
+        pasos: [
+          "Mezcla todos los ingredientes hasta obtener una masa homogénea.",
+          "Coloca en moldes para cupcakes y hornea a 180°C por 20 minutos.",
+          "Decora a gusto cuando estén fríos."
+        ]
+      },
+      {
+        nombre: "Tiramisú clásico",
+        descripcion: "Postre italiano cremoso y delicioso.",
+        valorNutricional: "300 kcal por porción",
+        ingredientes: [
+          { nombre: "Queso mascarpone", cantidad: 250, unidad: "g" },
+          { nombre: "Café expreso", cantidad: 200, unidad: "ml" },
+          { nombre: "Bizcochos de soletilla", cantidad: 200, unidad: "g" },
+          { nombre: "Cacao en polvo", cantidad: 10, unidad: "g" },
+          { nombre: "Azúcar", cantidad: 100, unidad: "g" }
+        ],
+        pasos: [
+          "Monta el mascarpone con azúcar.",
+          "Remoja los bizcochos en café y coloca en molde.",
+          "Alterna capas de mascarpone y bizcochos.",
+          "Refrigera 4 horas y espolvorea cacao antes de servir."
+        ]
+      }
+    ];
+
+    function crearRecetaHTML(receta) {
+      const recetaDiv = document.createElement('div');
+      recetaDiv.classList.add('receta');
+
+      let ingredientesHTML = '<ul>';
+      receta.ingredientes.forEach(ing => {
+        ingredientesHTML += `<li data-cantidad="${ing.cantidad}" data-nombre="${ing.nombre}" data-unidad="${ing.unidad}">${ing.cantidad} ${ing.unidad} de ${ing.nombre}</li>`;
+      });
+      ingredientesHTML += '</ul>';
+
+      let pasosHTML = '<ol>';
+      receta.pasos.forEach(paso => {
+        pasosHTML += `<li>${paso}</li>`;
+      });
+      pasosHTML += '</ol>';
+
+      recetaDiv.innerHTML = `
+        <h2>${receta.nombre}</h2>
+        <p class="descripcion">${receta.descripcion}</p>
+        <p class="valor-nutricional">Valor nutricional: ${receta.valorNutricional}</p>
+        <div class="ingredientes">
+          <h3>Ingredientes:</h3>
+          ${ingredientesHTML}
+        </div>
+        <div class="calculadora-porciones">
+          <label for="porciones-${receta.nombre.replace(/\s+/g, '-')}">Porciones:</label>
+          <input type="number" min="1" max="100" value="1" id="porciones-${receta.nombre.replace(/\s+/g, '-')}" />
+        </div>
+        <div class="pasos">
+          <h3>Pasos:</h3>
+          ${pasosHTML}
+        </div>
+      `;
+
+      recetaDiv.querySelector('input[type="number"]').addEventListener('input', (e) => {
+        let factor = Number(e.target.value);
+        if (factor < 1) factor = 1;
+        if (factor > 100) factor = 100;
+
+        recetaDiv.querySelectorAll('.ingredientes li').forEach(li => {
+          const base = parseFloat(li.dataset.cantidad);
+          const unidad = li.dataset.unidad;
+          const nombre = li.dataset.nombre;
+          const nueva = (base * factor).toFixed(2).replace(/\.00$/, '');
+          li.textContent = `${nueva} ${unidad} de ${nombre}`;
+        });
+      });
+
+      return recetaDiv;
+    }
+
+    const listaRecetasDiv = document.getElementById('lista-recetas');
+
+    function mostrarRecetas(recetasAMostrar) {
+      listaRecetasDiv.innerHTML = '';
+      recetasAMostrar.forEach(receta => {
+        listaRecetasDiv.appendChild(crearRecetaHTML(receta));
+      });
+    }
+
+    mostrarRecetas(recetas);
+
+    document.getElementById('buscador').addEventListener('input', e => {
+      const filtro = e.target.value.toLowerCase();
+      const filtradas = recetas.filter(r => 
+        r.nombre.toLowerCase().includes(filtro) || 
+        r.descripcion.toLowerCase().includes(filtro)
+      );
+      mostrarRecetas(filtradas);
+    });
+  </script>
+</body>
+</html>

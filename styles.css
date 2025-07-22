@@ -236,3 +236,45 @@ header {
   background-color: #545855;
   color: #EED5B7;
 }
+.menu-lateral {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 220px;
+  height: 100%;
+  background-color: #fff6f4;
+  padding: 1rem;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+  z-index: 1000;
+}
+
+.menu-lateral ul {
+  list-style: none;
+  padding: 0;
+}
+
+.menu-lateral li button {
+  display: block;
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 1rem 0;
+  text-align: left;
+  font-family: 'Baloo 2', cursive;
+  font-size: 1.1rem;
+  cursor: pointer;
+  color: #333;
+}
+
+.contenido-dinamico {
+  margin-left: 240px;
+  padding: 2rem;
+}
+
+.seccion-opcion {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}

@@ -1,147 +1,389 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Almuerzos</title>
-  <link rel="stylesheet" href="estilos.css">
-  <script defer src="script.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Almuerzos - Recetas con Amor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2&family=Garlic+Butter&family=Tangerine&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      background-color: #ffffff;
+      color: #545855;
+      font-family: 'Baloo 2', cursive;
+      padding: 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-family: 'Garlic Butter', cursive;
+      font-size: 48px;
+      text-align: center;
+      margin-bottom: 5px;
+      color: #D19793;
+    }
+
+    p.bienvenida {
+      font-family: 'Tangerine', cursive;
+      font-size: 28px;
+      text-align: center;
+      margin-top: 0;
+      margin-bottom: 30px;
+      color: #EED5B7;
+    }
+
+    .buscador {
+      width: 100%;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .buscador input {
+      width: 80%;
+      padding: 10px;
+      font-size: 18px;
+      border-radius: 12px;
+      border: 2px solid #D19793;
+    }
+
+    .receta {
+      background-color: #F6CEC8;
+      border-radius: 15px;
+      padding: 20px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 8px rgba(84, 88, 85, 0.2);
+    }
+
+    .receta h2 {
+      margin-top: 0;
+      color: #545855;
+      font-family: 'Garlic Butter', cursive;
+      font-size: 32px;
+    }
+
+    .receta p.descripcion {
+      font-style: italic;
+      font-size: 18px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      color: #CCC7AE;
+    }
+
+    .valor-nutricional {
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #545855;
+    }
+
+    .ingredientes {
+      margin-bottom: 15px;
+    }
+
+    .ingredientes ul {
+      list-style-type: none;
+      padding-left: 0;
+      font-size: 18px;
+    }
+
+    .ingredientes li {
+      margin-bottom: 5px;
+    }
+
+    .pasos {
+      margin-top: 15px;
+    }
+
+    .pasos ol {
+      padding-left: 20px;
+      font-size: 18px;
+      color: #545855;
+    }
+
+    .calculadora-porciones {
+      margin-top: 10px;
+      font-size: 18px;
+    }
+
+    .calculadora-porciones label {
+      font-weight: 700;
+      margin-right: 10px;
+    }
+
+    .calculadora-porciones input[type=number] {
+      width: 60px;
+      padding: 5px;
+      border-radius: 10px;
+      border: 2px solid #D19793;
+      font-size: 18px;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 10px;
+      }
+
+      h1 {
+        font-size: 36px;
+      }
+
+      p.bienvenida {
+        font-size: 24px;
+      }
+
+      .buscador input {
+        width: 95%;
+      }
+
+      .receta {
+        padding: 15px;
+      }
+
+      .receta h2 {
+        font-size: 26px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <h1>Almuerzos</h1>
-    <a href="index.html" class="boton-volver">⬅ Volver al inicio</a>
-  </header>
+<button onclick="window.location.href='index.html'" style="background-color:#D19793; color:#fff; border:none; padding:10px 20px; border-radius:12px; cursor:pointer; font-size:16px; margin-bottom:20px;">
+  ← Volver a inicio
+</button>
+  <h1>Recetas con Amor</h1>
+  <p class="bienvenida">Estas recetas las hice pensando en ti porque tú me inspiras a crear.</p>
 
-  <main>
-    <section class="buscador">
-      <input type="text" id="buscador-almuerzo" placeholder="Buscar receta de almuerzo...">
-    </section>
+  <div class="buscador">
+    <input type="search" id="buscador" placeholder="Buscar receta de almuerzo..." />
+  </div>
 
-    <section id="recetas-almuerzo" class="recetas">
-      <article class="receta">
-        <h2>Ensalada de quinoa</h2>
-        <p>Una ensalada ligera con quinoa, vegetales frescos y un aderezo de limón.</p>
-        <ul>
-          <li>Quinoa (30%)</li>
-          <li>Tomate (15%)</li>
-          <li>Pimiento (10%)</li>
-          <li>Pepino (10%)</li>
-          <li>Limón y aceite de oliva (5%)</li>
-        </ul>
-        <p><strong>Valor nutricional:</strong> 350 kcal</p>
-        <p>Paso a paso: Cocina la quinoa, pica los vegetales y mezcla todo con el aderezo.</p>
-      </article>
+  <div id="lista-recetas"></div>
 
-      <article class="receta">
-        <h2>Pollo al horno con batatas</h2>
-        <p>Pechuga de pollo al horno acompañada con batatas asadas.</p>
-        <ul>
-          <li>Pechuga de pollo (50%)</li>
-          <li>Batatas (40%)</li>
-          <li>Aceite de oliva, ajo y especias (10%)</li>
-        </ul>
-        <p><strong>Valor nutricional:</strong> 420 kcal</p>
-        <p>Paso a paso: Sazona el pollo, hornea junto con las batatas por 45 minutos.</p>
-      </article>
+  <script>
+    const recetas = [
+      {
+        nombre: "Ensalada de pollo a la plancha",
+        descripcion: "Una opción ligera pero rica en proteínas.",
+        valorNutricional: "350 kcal por porción",
+        ingredientes: [
+          { nombre: "Pechuga de pollo", cantidad: 150, unidad: "g" },
+          { nombre: "Lechuga", cantidad: 50, unidad: "g" },
+          { nombre: "Tomate", cantidad: 1, unidad: "pieza" },
+          { nombre: "Aceite de oliva", cantidad: 1, unidad: "cucharadita" }
+        ],
+        pasos: [
+          "Cocina la pechuga de pollo a la plancha con aceite de oliva.",
+          "Corta las verduras y mézclalas en un bowl.",
+          "Agrega el pollo troceado y sirve."
+        ]
+      },
+      {
+        nombre: "Arroz integral con vegetales",
+        descripcion: "Una comida saludable y llena de fibra.",
+        valorNutricional: "400 kcal por porción",
+        ingredientes: [
+          { nombre: "Arroz integral", cantidad: 100, unidad: "g" },
+          { nombre: "Zanahoria", cantidad: 1, unidad: "pieza" },
+          { nombre: "Brócoli", cantidad: 50, unidad: "g" },
+          { nombre: "Aceite de oliva", cantidad: 1, unidad: "cucharada" }
+        ],
+        pasos: [
+          "Cuece el arroz integral.",
+          "Saltea los vegetales en aceite de oliva.",
+          "Mezcla con el arroz y sirve caliente."
+        ]
+      },
+      {
+        nombre: "Tacos de lentejas",
+        descripcion: "Una alternativa vegetal deliciosa.",
+        valorNutricional: "370 kcal por porción",
+        ingredientes: [
+          { nombre: "Tortillas de maíz", cantidad: 2, unidad: "pieza" },
+          { nombre: "Lentejas cocidas", cantidad: 100, unidad: "g" },
+          { nombre: "Cebolla", cantidad: 0.25, unidad: "pieza" },
+          { nombre: "Pimiento", cantidad: 0.25, unidad: "pieza" }
+        ],
+        pasos: [
+          "Sofríe la cebolla y el pimiento.",
+          "Agrega las lentejas cocidas.",
+          "Rellena las tortillas y sirve."
+        ]
+      },
+      {
+        nombre: "Filete de pescado al horno",
+        descripcion: "Rico en omega 3 y bajo en grasas.",
+        valorNutricional: "300 kcal por porción",
+        ingredientes: [
+          { nombre: "Filete de pescado blanco", cantidad: 150, unidad: "g" },
+          { nombre: "Limón", cantidad: 1, unidad: "pieza" },
+          { nombre: "Ajo", cantidad: 1, unidad: "diente" }
+        ],
+        pasos: [
+          "Marina el pescado con limón y ajo.",
+          "Hornea por 20 minutos a 180°C.",
+          "Sirve con ensalada fresca."
+        ]
+      },
+      {
+        nombre: "Pasta integral con salsa de tomate natural",
+        descripcion: "Una opción sana y satisfactoria.",
+        valorNutricional: "420 kcal por porción",
+        ingredientes: [
+          { nombre: "Pasta integral", cantidad: 80, unidad: "g" },
+          { nombre: "Tomate natural", cantidad: 2, unidad: "pieza" },
+          { nombre: "Albahaca", cantidad: 1, unidad: "cucharadita" }
+        ],
+        pasos: [
+          "Cuece la pasta.",
+          "Licúa y cocina los tomates con albahaca.",
+          "Sirve la pasta con la salsa encima."
+        ]
+      },
+      {
+        nombre: "Tortilla de papa y espinacas",
+        descripcion: "Una receta clásica con un toque verde.",
+        valorNutricional: "350 kcal por porción",
+        ingredientes: [
+          { nombre: "Papa", cantidad: 1, unidad: "pieza" },
+          { nombre: "Huevos", cantidad: 2, unidad: "pieza" },
+          { nombre: "Espinacas", cantidad: 30, unidad: "g" }
+        ],
+        pasos: [
+          "Cocina las papas en rodajas.",
+          "Bate los huevos y mezcla con espinacas.",
+          "Agrega las papas y cocina en sartén."
+        ]
+      },
+      {
+        nombre: "Salteado de tofu y vegetales",
+        descripcion: "Ideal para una comida vegetariana balanceada.",
+        valorNutricional: "360 kcal por porción",
+        ingredientes: [
+          { nombre: "Tofu", cantidad: 100, unidad: "g" },
+          { nombre: "Pimiento", cantidad: 1, unidad: "pieza" },
+          { nombre: "Zucchini", cantidad: 1, unidad: "pieza" }
+        ],
+        pasos: [
+          "Corta el tofu y las verduras.",
+          "Saltea todo junto en sartén caliente.",
+          "Sirve caliente."
+        ]
+      },
+      {
+        nombre: "Ensalada de atún con garbanzos",
+        descripcion: "Proteínas saludables en una sola comida.",
+        valorNutricional: "390 kcal por porción",
+        ingredientes: [
+          { nombre: "Atún en agua", cantidad: 1, unidad: "lata" },
+          { nombre: "Garbanzos cocidos", cantidad: 100, unidad: "g" },
+          { nombre: "Espinacas", cantidad: 30, unidad: "g" }
+        ],
+        pasos: [
+          "Mezcla todos los ingredientes en un bowl.",
+          "Adereza al gusto con aceite de oliva o limón.",
+          "Sirve fría."
+        ]
+      },
+      {
+        nombre: "Wraps de pollo con verduras",
+        descripcion: "Fáciles de preparar y transportar.",
+        valorNutricional: "410 kcal por porción",
+        ingredientes: [
+          { nombre: "Tortilla integral", cantidad: 1, unidad: "pieza" },
+          { nombre: "Pollo cocido", cantidad: 100, unidad: "g" },
+          { nombre: "Zanahoria rallada", cantidad: 30, unidad: "g" }
+        ],
+        pasos: [
+          "Coloca el pollo y la zanahoria en la tortilla.",
+          "Enrolla y sirve frío o caliente."
+        ]
+      },
+      {
+        nombre: "Arroz con huevo y verduras",
+        descripcion: "Sencillo y nutritivo.",
+        valorNutricional: "380 kcal por porción",
+        ingredientes: [
+          { nombre: "Arroz", cantidad: 100, unidad: "g" },
+          { nombre: "Huevo", cantidad: 1, unidad: "pieza" },
+          { nombre: "Guisantes", cantidad: 50, unidad: "g" }
+        ],
+        pasos: [
+          "Cuece el arroz.",
+          "Fríe el huevo y mezcla con los guisantes.",
+          "Mezcla todo y sirve caliente."
+        ]
+      }
+    ];
 
-      <article class="receta">
-        <h2>Arroz integral con vegetales salteados</h2>
-        <p>Una opción vegetariana rica en fibra.</p>
-        <ul>
-          <li>Arroz integral cocido (40%)</li>
-          <li>Zanahoria, brócoli, arvejas (50%)</li>
-          <li>Soya y aceite (10%)</li>
-        </ul>
-        <p><strong>Valor nutricional:</strong> 390 kcal</p>
-        <p>Paso a paso: Cocina el arroz, saltea los vegetales y mezcla todo junto.</p>
-      </article>
+    function crearRecetaHTML(receta) {
+      const recetaDiv = document.createElement('div');
+      recetaDiv.classList.add('receta');
 
-      <article class="receta">
-        <h2>Tortilla de espinaca y avena</h2>
-        <p>Tortilla nutritiva rica en hierro.</p>
-        <ul>
-          <li>Huevos (50%)</li>
-          <li>Espinaca (30%)</li>
-          <li>Avena (20%)</li>
-        </ul>
-        <p><strong>Valor nutricional:</strong> 280 kcal</p>
-        <p>Paso a paso: Mezcla todos los ingredientes y cocina en sartén antiadherente.</p>
-      </article>
+      let ingredientesHTML = '<ul>';
+      receta.ingredientes.forEach(ing => {
+        ingredientesHTML += `<li data-cantidad="${ing.cantidad}" data-nombre="${ing.nombre}" data-unidad="${ing.unidad}">${ing.cantidad} ${ing.unidad} de ${ing.nombre}</li>`;
+      });
+      ingredientesHTML += '</ul>';
 
-      <article class="receta">
-        <h2>Lentejas guisadas con verduras</h2>
-        <p>Un plato alto en proteína vegetal.</p>
-        <ul>
-          <li>Lentejas (60%)</li>
-          <li>Verduras varias (30%)</li>
-          <li>Especias (10%)</li>
-        </ul>
-        <p><strong>Valor nutricional:</strong> 400 kcal</p>
-        <p>Paso a paso: Cocina las lentejas con las verduras y condimenta al gusto.</p>
-      </article>
+      let pasosHTML = '<ol>';
+      receta.pasos.forEach(paso => {
+        pasosHTML += `<li>${paso}</li>`;
+      });
+      pasosHTML += '</ol>';
 
-      <article class="receta">
-        <h2>Tacos integrales con atún y aguacate</h2>
-        <p>Tacos saludables y rápidos.</p>
-        <ul>
-          <li>Pan integral (30%)</li>
-          <li>Atún (40%)</li>
-          <li>Aguacate (20%)</li>
-          <li>Vegetales (10%)</li>
-        </ul>
-        <p><strong>Valor nutricional:</strong> 370 kcal</p>
-        <p>Paso a paso: Arma los tacos con los ingredientes y sirve frío.</p>
-      </article>
+      recetaDiv.innerHTML = `
+        <h2>${receta.nombre}</h2>
+        <p class="descripcion">${receta.descripcion}</p>
+        <p class="valor-nutricional">Valor nutricional: ${receta.valorNutricional}</p>
+        <div class="ingredientes">
+          <h3>Ingredientes:</h3>
+          ${ingredientesHTML}
+        </div>
+        <div class="calculadora-porciones">
+          <label for="porciones-${receta.nombre.replace(/\s+/g, '-')}">Porciones:</label>
+          <input type="number" min="1" max="100" value="1" id="porciones-${receta.nombre.replace(/\s+/g, '-')}" />
+        </div>
+        <div class="pasos">
+          <h3>Pasos:</h3>
+          ${pasosHTML}
+        </div>
+      `;
 
-      <article class="receta">
-        <h2>Pollo a la plancha con arroz y ensalada</h2>
-        <p>Un clásico balanceado.</p>
-        <ul>
-          <li>Pechuga de pollo (40%)</li>
-          <li>Arroz blanco o integral (30%)</li>
-          <li>Ensalada fresca (30%)</li>
-        </ul>
-        <p><strong>Valor nutricional:</strong> 450 kcal</p>
-        <p>Paso a paso: Cocina cada componente por separado y sirve en plato balanceado.</p>
-      </article>
+      recetaDiv.querySelector('input[type="number"]').addEventListener('input', (e) => {
+        let factor = Number(e.target.value);
+        if (factor < 1) factor = 1;
+        if (factor > 100) factor = 100;
 
-      <article class="receta">
-        <h2>Bol de garbanzos y vegetales</h2>
-        <p>Una comida vegana completa.</p>
-        <ul>
-          <li>Garbanzos cocidos (50%)</li>
-          <li>Vegetales al vapor (40%)</li>
-          <li>Aderezo de tahini (10%)</li>
-        </ul>
-        <p><strong>Valor nutricional:</strong> 390 kcal</p>
-        <p>Paso a paso: Mezcla los garbanzos con los vegetales y añade aderezo.</p>
-      </article>
+        recetaDiv.querySelectorAll('.ingredientes li').forEach(li => {
+          const base = parseFloat(li.dataset.cantidad);
+          const unidad = li.dataset.unidad;
+          const nombre = li.dataset.nombre;
+          const nueva = (base * factor).toFixed(2).replace(/\.00$/, '');
+          li.textContent = `${nueva} ${unidad} de ${nombre}`;
+        });
+      });
 
-      <article class="receta">
-        <h2>Pasta integral con salsa de tomate natural</h2>
-        <p>Una receta deliciosa y ligera.</p>
-        <ul>
-          <li>Pasta integral (60%)</li>
-          <li>Salsa de tomate casera (30%)</li>
-          <li>Queso rallado (10%)</li>
-        </ul>
-        <p><strong>Valor nutricional:</strong> 410 kcal</p>
-        <p>Paso a paso: Cocina la pasta, prepara la salsa y mezcla todo.</p>
-      </article>
+      return recetaDiv;
+    }
 
-      <article class="receta">
-        <h2>Wrap integral de pollo y vegetales</h2>
-        <p>Perfecto para llevar.</p>
-        <ul>
-          <li>Tortilla integral (30%)</li>
-          <li>Pollo cocido (40%)</li>
-          <li>Vegetales crudos (30%)</li>
-        </ul>
-        <p><strong>Valor nutricional:</strong> 400 kcal</p>
-        <p>Paso a paso: Arma el wrap y córtalo en mitades para servir.</p>
-      </article>
-    </section>
-  </main>
+    const listaRecetasDiv = document.getElementById('lista-recetas');
+
+    function mostrarRecetas(recetasAMostrar) {
+      listaRecetasDiv.innerHTML = '';
+      recetasAMostrar.forEach(receta => {
+        listaRecetasDiv.appendChild(crearRecetaHTML(receta));
+      });
+    }
+
+    mostrarRecetas(recetas);
+
+    document.getElementById('buscador').addEventListener('input', e => {
+      const filtro = e.target.value.toLowerCase();
+      const filtradas = recetas.filter(r => 
+        r.nombre.toLowerCase().includes(filtro) || 
+        r.descripcion.toLowerCase().includes(filtro)
+      );
+      mostrarRecetas(filtradas);
+    });
+  </script>
 </body>
 </html>

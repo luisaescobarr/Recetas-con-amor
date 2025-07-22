@@ -2,267 +2,133 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Almuerzos Nutritivos - Recetas con Amor</title>
-  <link href="https://fonts.googleapis.com/css2?family=Baloo+2&family=Garlic+Butter&family=Tangerine&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Recetas - Almuerzos Saludables</title>
   <style>
     body {
-      background-color: #ffffff;
-      color: #545855;
-      font-family: 'Baloo 2', cursive;
-      padding: 20px;
+      background-color: #fff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #EED5B7;
+      padding: 1rem;
+      text-align: center;
+      position: relative;
+    }
+    h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+    .volver-btn {
+      position: absolute;
+      top: 50%;
+      left: 1rem;
+      transform: translateY(-50%);
+      background-color: #D19793;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .search-container {
+      text-align: center;
+      margin: 1.5rem 0;
+    }
+    #buscador {
+      width: 80%;
+      padding: 0.7rem;
+      font-size: 1rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    .recetas {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      padding: 1rem;
       max-width: 900px;
       margin: 0 auto;
     }
-    h1 {
-      font-family: 'Garlic Butter', cursive;
-      font-size: 48px;
-      color: #D19793;
-      margin: 0;
-    }
-    .bienvenida {
-      font-family: 'Tangerine', cursive;
-      font-size: 28px;
-      text-align: center;
-      margin-top: 0;
-      margin-bottom: 30px;
-      color: #EED5B7;
-    }
-    .buscador input {
-      width: 80%;
-      padding: 10px;
-      font-size: 18px;
-      border-radius: 12px;
-      border: 2px solid #D19793;
-      margin-bottom: 20px;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-    }
     .receta {
-      background-color: #F6CEC8;
-      border-radius: 15px;
-      padding: 20px;
-      margin-bottom: 30px;
-      box-shadow: 0 4px 8px rgba(84, 88, 85, 0.2);
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 1rem;
+      background-color: #fdf7f2;
     }
     .receta h2 {
       margin-top: 0;
-      color: #545855;
-      font-family: 'Garlic Butter', cursive;
-      font-size: 32px;
     }
-    .receta p.descripcion {
-      font-style: italic;
-      font-size: 18px;
-      margin-top: 5px;
-      margin-bottom: 15px;
-      color: #CCC7AE;
-    }
-    .valor-nutricional {
-      font-weight: 700;
-      margin-bottom: 10px;
-      color: #545855;
-    }
-    .ingredientes ul {
-      list-style-type: none;
-      padding-left: 0;
-      font-size: 18px;
-    }
-    .ingredientes li {
-      margin-bottom: 5px;
-    }
-    .pasos ol {
-      padding-left: 20px;
-      font-size: 18px;
-      color: #545855;
-    }
-    .calculadora-porciones {
-      margin-top: 10px;
-      font-size: 18px;
-    }
-    .calculadora-porciones label {
-      font-weight: 700;
-      margin-right: 10px;
-    }
-    .calculadora-porciones input[type=number] {
-      width: 60px;
-      padding: 5px;
-      border-radius: 10px;
-      border: 2px solid #D19793;
-      font-size: 18px;
-    }
-    /* Botón volver */
-    .header-container {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      margin-bottom: 30px;
-    }
-    .back-button-small {
-      position: absolute;
-      left: 0;
-      background: none;
+    .favorito {
+      background-color: #D19793;
+      color: white;
       border: none;
-      font-size: 32px;
+      padding: 0.4rem 0.8rem;
+      border-radius: 4px;
       cursor: pointer;
-      color: #D19793;
-      user-select: none;
-    }
-    /* Responsive */
-    @media (max-width: 768px) {
-      body {
-        padding: 10px;
-      }
-      h1 {
-        font-size: 36px;
-      }
-      .bienvenida {
-        font-size: 24px;
-      }
-      .buscador input {
-        width: 95%;
-      }
-      .receta {
-        padding: 15px;
-      }
-      .receta h2 {
-        font-size: 26px;
-      }
+      margin-top: 1rem;
     }
   </style>
 </head>
 <body>
 
-  <div class="header-container">
-    <button class="back-button-small" aria-label="Volver a inicio" onclick="window.location.href='index.html'">←</button>
-    <h1>Recetas con Amor</h1>
+  <header>
+    <button class="volver-btn" onclick="window.location.href='index.html'">← Volver</button>
+    <h1>Almuerzos Saludables</h1>
+  </header>
+
+  <div class="search-container">
+    <input type="text" id="buscador" placeholder="Buscar receta...">
   </div>
 
-  <p class="bienvenida">Estas recetas las hice pensando en ti porque tú me inspiras a crear.</p>
+  <section class="recetas" id="lista-recetas">
+    <!-- Receta 1 -->
+    <div class="receta">
+      <h2>Pollo al horno con verduras</h2>
+      <p>Una opción baja en grasas, rica en proteínas y sabor.</p>
+      <p><strong>Valor nutricional:</strong> 350 kcal, 30g proteínas, 12g grasas, 25g carbohidratos</p>
+      <p><strong>Ingredientes:</strong> 1 pechuga (60%), 1 taza de brócoli (20%), 1 zanahoria (20%)</p>
+      <p><strong>Preparación:</strong> Precalienta el horno, corta verduras, condimenta y hornea 35 min.</p>
+      <button class="favorito">⭐ Marcar como favorita</button>
+    </div>
 
-  <div class="buscador">
-    <input type="search" id="buscador" placeholder="Buscar receta de almuerzo..." />
-  </div>
+    <!-- Receta 2 -->
+    <div class="receta">
+      <h2>Ensalada de quinoa con aguacate</h2>
+      <p>Fresca, ligera y llena de energía y fibra.</p>
+      <p><strong>Valor nutricional:</strong> 310 kcal, 9g proteínas, 10g grasas, 40g carbohidratos</p>
+      <p><strong>Ingredientes:</strong> 1/2 taza de quinoa cocida (50%), 1/2 aguacate (30%), tomate (20%)</p>
+      <p><strong>Preparación:</strong> Cocina la quinoa, mezcla con los ingredientes picados y sirve.</p>
+      <button class="favorito">⭐ Marcar como favorita</button>
+    </div>
 
-  <div id="lista-recetas"></div>
+    <!-- Recetas 3 a 10 (puedes agregar más siguiendo el mismo formato) -->
+    <div class="receta">
+      <h2>Arroz integral con lentejas</h2>
+      <p>Fuente rica en hierro y fibra, ideal para mantenerte lleno más tiempo.</p>
+      <p><strong>Valor nutricional:</strong> 420 kcal, 18g proteínas, 5g grasas, 70g carbohidratos</p>
+      <p><strong>Ingredientes:</strong> Arroz integral (50%), lentejas cocidas (40%), cebolla (10%)</p>
+      <p><strong>Preparación:</strong> Cocina arroz y lentejas, sofríe cebolla, mezcla y sirve.</p>
+      <button class="favorito">⭐ Marcar como favorita</button>
+    </div>
+
+    <!-- Agrega más recetas aquí del 4 al 10... -->
+
+  </section>
 
   <script>
-    const recetas = [
-      // (Aquí va el arreglo con las 10 recetas que ya te envié antes, las mismas)
-      {
-        nombre: "Ensalada de Quinoa",
-        descripcion: "Una ensalada fresca, nutritiva y rica en proteínas.",
-        valorNutricional: "350 kcal por porción",
-        ingredientes: [
-          { nombre: "Quinoa", cantidad: 100, unidad: "g" },
-          { nombre: "Tomate", cantidad: 1, unidad: "pieza" },
-          { nombre: "Pepino", cantidad: 0.5, unidad: "pieza" },
-          { nombre: "Aceite de oliva", cantidad: 2, unidad: "cucharadas" },
-          { nombre: "Jugo de limón", cantidad: 1, unidad: "cucharada" }
-        ],
-        pasos: [
-          "Cocina la quinoa según las instrucciones del paquete y deja enfriar.",
-          "Pica el tomate y el pepino.",
-          "Mezcla todos los ingredientes y agrega aceite y limón.",
-          "Sirve fresca."
-        ]
-      },
-      // ... Las demás recetas aquí ...
-      {
-        nombre: "Buddha bowl",
-        descripcion: "Un bol nutritivo con verduras, granos y proteínas.",
-        valorNutricional: "420 kcal por porción",
-        ingredientes: [
-          { nombre: "Arroz integral", cantidad: 100, unidad: "g" },
-          { nombre: "Garbanzos cocidos", cantidad: 100, unidad: "g" },
-          { nombre: "Aguacate", cantidad: 0.5, unidad: "pieza" },
-          { nombre: "Zanahoria rallada", cantidad: 1, unidad: "pieza" },
-          { nombre: "Espinacas", cantidad: 30, unidad: "g" }
-        ],
-        pasos: [
-          "Coloca el arroz en un bol.",
-          "Agrega los garbanzos, aguacate, zanahoria y espinacas.",
-          "Mezcla y sirve."
-        ]
+    const buscador = document.getElementById('buscador');
+    const lista = document.getElementById('lista-recetas');
+    buscador.addEventListener('input', () => {
+      const valor = buscador.value.toLowerCase();
+      const recetas = lista.getElementsByClassName('receta');
+      for (let receta of recetas) {
+        receta.style.display = receta.innerText.toLowerCase().includes(valor) ? 'block' : 'none';
       }
-    ];
-
-    function crearRecetaHTML(receta) {
-      const recetaDiv = document.createElement('div');
-      recetaDiv.classList.add('receta');
-
-      let ingredientesHTML = '<ul>';
-      receta.ingredientes.forEach(ing => {
-        ingredientesHTML += `<li data-cantidad="${ing.cantidad}" data-nombre="${ing.nombre}" data-unidad="${ing.unidad}">${ing.cantidad} ${ing.unidad} de ${ing.nombre}</li>`;
-      });
-      ingredientesHTML += '</ul>';
-
-      let pasosHTML = '<ol>';
-      receta.pasos.forEach(paso => {
-        pasosHTML += `<li>${paso}</li>`;
-      });
-      pasosHTML += '</ol>';
-
-      recetaDiv.innerHTML = `
-        <h2>${receta.nombre}</h2>
-        <p class="descripcion">${receta.descripcion}</p>
-        <p class="valor-nutricional">Valor nutricional: ${receta.valorNutricional}</p>
-        <div class="ingredientes">
-          <h3>Ingredientes:</h3>
-          ${ingredientesHTML}
-        </div>
-        <div class="calculadora-porciones">
-          <label for="porciones-${receta.nombre.replace(/\s+/g, '-')}" >Porciones:</label>
-          <input type="number" min="1" max="100" value="1" id="porciones-${receta.nombre.replace(/\s+/g, '-')}" />
-        </div>
-        <div class="pasos">
-          <h3>Pasos:</h3>
-          ${pasosHTML}
-        </div>
-      `;
-
-      const inputPorciones = recetaDiv.querySelector('input[type="number"]');
-      inputPorciones.addEventListener('input', () => {
-        let factor = Number(inputPorciones.value);
-        if (factor < 1) factor = 1;
-        if (factor > 100) factor = 100;
-
-        const ingredientesLi = recetaDiv.querySelectorAll('.ingredientes li');
-        ingredientesLi.forEach(li => {
-          const cantidadBase = parseFloat(li.dataset.cantidad);
-          const unidad = li.dataset.unidad;
-          const nombre = li.dataset.nombre;
-          const cantidadCalculada = (cantidadBase * factor).toFixed(2).replace(/\.00$/, '');
-          li.textContent = `${cantidadCalculada} ${unidad} de ${nombre}`;
-        });
-      });
-
-      return recetaDiv;
-    }
-
-    const listaRecetasDiv = document.getElementById('lista-recetas');
-
-    function mostrarRecetas(recetasAMostrar) {
-      listaRecetasDiv.innerHTML = '';
-      recetasAMostrar.forEach(receta => {
-        listaRecetasDiv.appendChild(crearRecetaHTML(receta));
-      });
-    }
-
-    mostrarRecetas(recetas);
-
-    const buscadorInput = document.getElementById('buscador');
-    buscadorInput.addEventListener('input', () => {
-      const filtro = buscadorInput.value.toLowerCase();
-      const filtradas = recetas.filter(r =>
-        r.nombre.toLowerCase().includes(filtro) ||
-        r.descripcion.toLowerCase().includes(filtro)
-      );
-      mostrarRecetas(filtradas);
     });
   </script>
+
 </body>
 </html>

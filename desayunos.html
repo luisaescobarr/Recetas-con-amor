@@ -7,15 +7,143 @@
   <link href="https://fonts.googleapis.com/css2?family=Baloo+2&family=Garlic+Butter&family=Tangerine&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
   <style>
-    .favorito {
-      cursor: pointer;
-      font-size: 24px;
-      color: #ccc;
-      float: right;
-      transition: color 0.3s;
+    /* Ajustes específicos para esta página */
+    body {
+      background-color: #ffffff;
+      color: #545855;
+      font-family: 'Baloo 2', cursive;
+      padding: 20px;
+      max-width: 900px;
+      margin: 0 auto;
     }
-    .favorito.activo {
-      color: red;
+
+    h1 {
+      font-family: 'Garlic Butter', cursive;
+      font-size: 48px;
+      text-align: center;
+      margin-bottom: 5px;
+      color: #D19793;
+    }
+
+    p.bienvenida {
+      font-family: 'Tangerine', cursive;
+      font-size: 28px;
+      text-align: center;
+      margin-top: 0;
+      margin-bottom: 30px;
+      color: #EED5B7;
+    }
+
+    .buscador {
+      width: 100%;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .buscador input {
+      width: 80%;
+      padding: 10px;
+      font-size: 18px;
+      border-radius: 12px;
+      border: 2px solid #D19793;
+    }
+
+    .receta {
+      background-color: #F6CEC8;
+      border-radius: 15px;
+      padding: 20px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 8px rgba(84, 88, 85, 0.2);
+    }
+
+    .receta h2 {
+      margin-top: 0;
+      color: #545855;
+      font-family: 'Garlic Butter', cursive;
+      font-size: 32px;
+    }
+
+    .receta p.descripcion {
+      font-style: italic;
+      font-size: 18px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      color: #CCC7AE;
+    }
+
+    .valor-nutricional {
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #545855;
+    }
+
+    .ingredientes {
+      margin-bottom: 15px;
+    }
+
+    .ingredientes ul {
+      list-style-type: none;
+      padding-left: 0;
+      font-size: 18px;
+    }
+
+    .ingredientes li {
+      margin-bottom: 5px;
+    }
+
+    .pasos {
+      margin-top: 15px;
+    }
+
+    .pasos ol {
+      padding-left: 20px;
+      font-size: 18px;
+      color: #545855;
+    }
+
+    .calculadora-porciones {
+      margin-top: 10px;
+      font-size: 18px;
+    }
+
+    .calculadora-porciones label {
+      font-weight: 700;
+      margin-right: 10px;
+    }
+
+    .calculadora-porciones input[type=number] {
+      width: 60px;
+      padding: 5px;
+      border-radius: 10px;
+      border: 2px solid #D19793;
+      font-size: 18px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      body {
+        padding: 10px;
+      }
+
+      h1 {
+        font-size: 36px;
+      }
+
+      p.bienvenida {
+        font-size: 24px;
+      }
+
+      .buscador input {
+        width: 95%;
+      }
+
+      .receta {
+        padding: 15px;
+      }
+
+      .receta h2 {
+        font-size: 26px;
+      }
     }
   </style>
 </head>
@@ -23,71 +151,258 @@
 <button onclick="window.location.href='index.html'" style="background-color:#D19793; color:#fff; border:none; padding:10px 20px; border-radius:12px; cursor:pointer; font-size:16px; margin-bottom:20px;">
   ← Volver a inicio
 </button>
-<h1>Recetas con Amor</h1>
-<p class="bienvenida">Estas recetas las hice pensando en ti porque tú me inspiras a crear.</p>
+  <h1>Recetas con Amor</h1>
+  <p class="bienvenida">Estas recetas las hice pensando en ti porque tú me inspiras a crear.</p>
 
-<div class="buscador">
-  <input type="search" id="buscador" placeholder="Buscar receta de desayuno..." />
-</div>
+  <div class="buscador">
+    <input type="search" id="buscador" placeholder="Buscar receta de desayuno..." />
+  </div>
 
-<div id="lista-recetas"></div>
+  <div id="lista-recetas">
 
-<script>
-  const recetas = [
-    { nombre: "Avena con Frutas", descripcion: "Un desayuno nutritivo...", valorNutricional: "300 kcal", ingredientes: [], pasos: [] },
-    { nombre: "Tostadas Integrales con Aguacate", descripcion: "Deliciosas tostadas...", valorNutricional: "280 kcal", ingredientes: [], pasos: [] },
-    // ...continúa con todas tus recetas igual que antes
-  ];
+    <!-- Aquí irán las recetas generadas con JavaScript -->
 
-  const favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
+  </div>
 
-  function crearRecetaHTML(receta) {
-    const div = document.createElement("div");
-    div.classList.add("receta");
-
-    const esFavorito = favoritos.includes(receta.nombre);
-
-    const corazon = document.createElement("span");
-    corazon.classList.add("favorito");
-    if (esFavorito) corazon.classList.add("activo");
-    corazon.innerHTML = esFavorito ? '♥' : '♡';
-
-    corazon.addEventListener("click", () => {
-      if (favoritos.includes(receta.nombre)) {
-        favoritos.splice(favoritos.indexOf(receta.nombre), 1);
-        corazon.classList.remove("activo");
-        corazon.innerHTML = '♡';
-      } else {
-        favoritos.push(receta.nombre);
-        corazon.classList.add("activo");
-        corazon.innerHTML = '♥';
+  <script>
+    // Recetas fijas de desayuno
+    const recetas = [
+      {
+        nombre: "Avena con Frutas",
+        descripcion: "Un desayuno nutritivo y energético para comenzar el día.",
+        valorNutricional: "300 kcal por porción",
+        ingredientes: [
+          { nombre: "Avena", cantidad: 50, unidad: "g" },
+          { nombre: "Leche", cantidad: 200, unidad: "ml" },
+          { nombre: "Banana", cantidad: 1, unidad: "pieza" },
+          { nombre: "Fresas", cantidad: 5, unidad: "pieza" },
+          { nombre: "Miel", cantidad: 1, unidad: "cucharada" }
+        ],
+        pasos: [
+          "Cocina la avena con la leche a fuego medio.",
+          "Agrega las frutas picadas encima.",
+          "Endulza con miel al gusto y sirve."
+        ]
+      },
+      {
+        nombre: "Tostadas Integrales con Aguacate",
+        descripcion: "Deliciosas y saludables tostadas para energizar tu mañana.",
+        valorNutricional: "280 kcal por porción",
+        ingredientes: [
+          { nombre: "Pan integral", cantidad: 2, unidad: "rebanadas" },
+          { nombre: "Aguacate", cantidad: 0.5, unidad: "pieza" },
+          { nombre: "Sal", cantidad: 0.25, unidad: "cucharadita" },
+          { nombre: "Pimienta", cantidad: 0.1, unidad: "cucharadita" }
+        ],
+        pasos: [
+          "Tuesta el pan integral.",
+          "Machaca el aguacate y mezcla con sal y pimienta.",
+          "Unta el aguacate sobre las tostadas y sirve."
+        ]
+      },
+      {
+        nombre: "Smoothie Verde",
+        descripcion: "Una bebida refrescante y llena de vitaminas.",
+        valorNutricional: "180 kcal por porción",
+        ingredientes: [
+          { nombre: "Espinaca", cantidad: 30, unidad: "g" },
+          { nombre: "Banana", cantidad: 1, unidad: "pieza" },
+          { nombre: "Leche de almendra", cantidad: 200, unidad: "ml" },
+          { nombre: "Semillas de chía", cantidad: 1, unidad: "cucharada" }
+        ],
+        pasos: [
+          "Licúa todos los ingredientes hasta obtener una mezcla homogénea.",
+          "Sirve frío."
+        ]
+      },
+      {
+        nombre: "Huevos revueltos con tomate",
+        descripcion: "Un desayuno clásico con un toque saludable.",
+        valorNutricional: "250 kcal por porción",
+        ingredientes: [
+          { nombre: "Huevos", cantidad: 2, unidad: "pieza" },
+          { nombre: "Tomate", cantidad: 1, unidad: "pieza" },
+          { nombre: "Aceite de oliva", cantidad: 1, unidad: "cucharadita" },
+          { nombre: "Sal", cantidad: 0.25, unidad: "cucharadita" }
+        ],
+        pasos: [
+          "Bate los huevos con un poco de sal.",
+          "Sofríe el tomate picado en aceite de oliva.",
+          "Agrega los huevos y revuelve hasta que estén cocidos.",
+          "Sirve caliente."
+        ]
+      },
+      {
+        nombre: "Yogur con Granola y Miel",
+        descripcion: "Una combinación perfecta para un desayuno rápido y sano.",
+        valorNutricional: "320 kcal por porción",
+        ingredientes: [
+          { nombre: "Yogur natural", cantidad: 150, unidad: "g" },
+          { nombre: "Granola", cantidad: 50, unidad: "g" },
+          { nombre: "Miel", cantidad: 1, unidad: "cucharada" }
+        ],
+        pasos: [
+          "Coloca el yogur en un bowl.",
+          "Agrega la granola encima.",
+          "Endulza con miel y sirve."
+        ]
+      },
+      {
+        nombre: "Pan integral con queso fresco",
+        descripcion: "Simple y delicioso para un desayuno rápido.",
+        valorNutricional: "270 kcal por porción",
+        ingredientes: [
+          { nombre: "Pan integral", cantidad: 2, unidad: "rebanadas" },
+          { nombre: "Queso fresco", cantidad: 50, unidad: "g" }
+        ],
+        pasos: [
+          "Tuesta el pan integral.",
+          "Coloca el queso fresco encima y sirve."
+        ]
+      },
+      {
+        nombre: "Batido de fresa y plátano",
+        descripcion: "Un batido cremoso y nutritivo para empezar bien el día.",
+        valorNutricional: "250 kcal por porción",
+        ingredientes: [
+          { nombre: "Fresas", cantidad: 100, unidad: "g" },
+          { nombre: "Plátano", cantidad: 1, unidad: "pieza" },
+          { nombre: "Leche", cantidad: 200, unidad: "ml" }
+        ],
+        pasos: [
+          "Licúa todos los ingredientes hasta que estén bien mezclados.",
+          "Sirve frío."
+        ]
+      },
+      {
+        nombre: "Tortilla de espinacas",
+        descripcion: "Un desayuno rico en proteínas y vegetales.",
+        valorNutricional: "280 kcal por porción",
+        ingredientes: [
+          { nombre: "Huevos", cantidad: 2, unidad: "pieza" },
+          { nombre: "Espinacas", cantidad: 50, unidad: "g" },
+          { nombre: "Sal", cantidad: 0.25, unidad: "cucharadita" }
+        ],
+        pasos: [
+          "Bate los huevos con sal.",
+          "Agrega las espinacas picadas.",
+          "Cocina en sartén hasta que esté firme.",
+          "Sirve caliente."
+        ]
+      },
+      {
+        nombre: "Panqueques de avena",
+        descripcion: "Panqueques saludables y fáciles de hacer.",
+        valorNutricional: "320 kcal por porción",
+        ingredientes: [
+          { nombre: "Avena", cantidad: 60, unidad: "g" },
+          { nombre: "Huevo", cantidad: 1, unidad: "pieza" },
+          { nombre: "Leche", cantidad: 150, unidad: "ml" },
+          { nombre: "Miel", cantidad: 1, unidad: "cucharada" }
+        ],
+        pasos: [
+          "Mezcla todos los ingredientes.",
+          "Cocina la mezcla en sartén antiadherente en forma de panqueques.",
+          "Sirve con miel encima."
+        ]
+      },
+      {
+        nombre: "Café con leche y galletas integrales",
+        descripcion: "Un desayuno sencillo y reconfortante.",
+        valorNutricional: "220 kcal por porción",
+        ingredientes: [
+          { nombre: "Café", cantidad: 150, unidad: "ml" },
+          { nombre: "Leche", cantidad: 150, unidad: "ml" },
+          { nombre: "Galletas integrales", cantidad: 3, unidad: "pieza" }
+        ],
+        pasos: [
+          "Prepara el café y añade la leche.",
+          "Acompaña con las galletas integrales.",
+          "Disfruta."
+        ]
       }
-      localStorage.setItem("favoritos", JSON.stringify(favoritos));
+    ];
+
+    // Función para crear cada receta en HTML
+    function crearRecetaHTML(receta) {
+      const recetaDiv = document.createElement('div');
+      recetaDiv.classList.add('receta');
+
+      // Crear la lista de ingredientes con cantidades ajustables
+      let ingredientesHTML = '<ul>';
+      receta.ingredientes.forEach(ing => {
+        ingredientesHTML += <li data-cantidad="${ing.cantidad}" data-nombre="${ing.nombre}" data-unidad="${ing.unidad}">${ing.cantidad} ${ing.unidad} de ${ing.nombre}</li>;
+      });
+      ingredientesHTML += '</ul>';
+
+      // Crear pasos en lista ordenada
+      let pasosHTML = '<ol>';
+      receta.pasos.forEach(paso => {
+        pasosHTML += <li>${paso}</li>;
+      });
+      pasosHTML += '</ol>';
+
+      recetaDiv.innerHTML = 
+        <h2>${receta.nombre}</h2>
+        <p class="descripcion">${receta.descripcion}</p>
+        <p class="valor-nutricional">Valor nutricional: ${receta.valorNutricional}</p>
+        <div class="ingredientes">
+          <h3>Ingredientes:</h3>
+          ${ingredientesHTML}
+        </div>
+        <div class="calculadora-porciones">
+          <label for="porciones-${receta.nombre.replace(/\s+/g, '-')}" >Porciones:</label>
+          <input type="number" min="1" max="100" value="1" id="porciones-${receta.nombre.replace(/\s+/g, '-')}" />
+        </div>
+        <div class="pasos">
+          <h3>Pasos:</h3>
+          ${pasosHTML}
+        </div>
+      ;
+
+      // Evento para actualizar cantidades al cambiar porciones
+      const inputPorciones = recetaDiv.querySelector('input[type="number"]');
+      inputPorciones.addEventListener('input', () => {
+        let factor = Number(inputPorciones.value);
+        if (factor < 1) factor = 1;
+        if (factor > 100) factor = 100;
+
+        const ingredientesLi = recetaDiv.querySelectorAll('.ingredientes li');
+        ingredientesLi.forEach(li => {
+          const cantidadBase = parseFloat(li.dataset.cantidad);
+          const unidad = li.dataset.unidad;
+          const nombre = li.dataset.nombre;
+          const cantidadCalculada = (cantidadBase * factor).toFixed(2).replace(/\.00$/, '');
+          li.textContent = ${cantidadCalculada} ${unidad} de ${nombre};
+        });
+      });
+
+      return recetaDiv;
+    }
+
+    const listaRecetasDiv = document.getElementById('lista-recetas');
+
+    // Mostrar todas las recetas inicialmente
+    function mostrarRecetas(recetasAMostrar) {
+      listaRecetasDiv.innerHTML = '';
+      recetasAMostrar.forEach(receta => {
+        listaRecetasDiv.appendChild(crearRecetaHTML(receta));
+      });
+    }
+
+    mostrarRecetas(recetas);
+
+    // Filtrado en tiempo real
+    const buscadorInput = document.getElementById('buscador');
+    buscadorInput.addEventListener('input', () => {
+      const filtro = buscadorInput.value.toLowerCase();
+      const filtradas = recetas.filter(r => 
+        r.nombre.toLowerCase().includes(filtro) || 
+        r.descripcion.toLowerCase().includes(filtro)
+      );
+      mostrarRecetas(filtradas);
     });
+  </script>
 
-    div.innerHTML = `<h2>${receta.nombre}</h2><p class="descripcion">${receta.descripcion}</p><p class="valor-nutricional">Valor nutricional: ${receta.valorNutricional}</p>`;
-    div.querySelector("h2").appendChild(corazon);
-
-    return div;
-  }
-
-  const listaRecetasDiv = document.getElementById("lista-recetas");
-
-  function mostrarRecetas(lista) {
-    listaRecetasDiv.innerHTML = "";
-    lista.forEach(r => listaRecetasDiv.appendChild(crearRecetaHTML(r)));
-  }
-
-  mostrarRecetas(recetas);
-
-  const buscadorInput = document.getElementById("buscador");
-  buscadorInput.addEventListener("input", () => {
-    const filtro = buscadorInput.value.toLowerCase();
-    const filtradas = recetas.filter(r =>
-      r.nombre.toLowerCase().includes(filtro) || r.descripcion.toLowerCase().includes(filtro)
-    );
-    mostrarRecetas(filtradas);
-  });
-</script>
 </body>
 </html>
